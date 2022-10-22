@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
-import HashLoader from "react-spinners/BeatLoader";
+import { HashLoader, BarLoader } from "react-spinners";
+
 import Sea from "./Sea";
 import Air from "./Air";
+import AdditionalProductInfo from "./AdditionalProductInfo";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -9,6 +11,7 @@ const RequestQuote2 = () => {
   const [seaSelected, setSeaSelected] = useState(true);
   const [productDetails, setProductDetails] = useState();
   const [hsQuery, setHsQuery] = useState("");
+  const [hsCodesLoading, setHsCodesLoading] = useState(false);
   const [cities1, setCities1] = useState();
   const [cityQuery1, setCityQuery1] = useState("");
   const [cities2, setCities2] = useState();
@@ -17,6 +20,7 @@ const RequestQuote2 = () => {
   const inputCity1 = useRef("");
   const inputCity2 = useRef("");
   const [isLoading, setIsLoading] = useState(false);
+  const [clearProdInputIcon, setClearProdInputIcon] = useState(false);
   //
   const [formData, setFormData] = useState({
     delivery_mode: "Sea",
@@ -59,13 +63,24 @@ const RequestQuote2 = () => {
 
   const handleClickProductName = (name, description, hscode) => {
     if (description) {
-      inputProduct.current = `${name} : ${description}, ${hscode}`;
+      inputProduct.current = `${name} : ${description}`;
     } else {
       inputProduct.current = `${name}`;
     }
 
     let product_details = document.getElementById("product_details");
+    let hscodespan = document.getElementById("hscode");
+    hscodespan.innerText = hscode;
     product_details.value = inputProduct.current;
+    setClearProdInputIcon(true);
+  };
+
+  const clearProductInput = () => {
+    let product_details = document.getElementById("product_details");
+    let hscodespan = document.getElementById("hscode");
+    product_details.value = "";
+    hscodespan.innerText = "";
+    setClearProdInputIcon(false);
   };
 
   const handleClickCity1 = (city, country) => {
@@ -91,11 +106,17 @@ const RequestQuote2 = () => {
       );
       let data = await response.json();
       console.log(data);
+      if (data) {
+        setHsCodesLoading(false);
+      }
       setProductDetails(data);
     } catch (e) {
       console.log(e);
     }
   };
+
+  //
+  let product_details = document.getElementById("product_details");
 
   const getLocation1 = async (cityQuery1) => {
     console.log(cityQuery1);
@@ -128,11 +149,18 @@ const RequestQuote2 = () => {
   };
 
   useEffect(() => {
-    if (hsQuery.length === 0) {
+    if (hsQuery.length >= 1) {
+      setHsCodesLoading(true);
+    } else if (hsQuery.length === 0) {
+      setHsCodesLoading(false);
+    }
+
+    if (hsQuery.length <= 1) {
       setProductDetails(null);
       return;
+    } else if (hsQuery.length >= 2) {
+      getProductDetails(hsQuery);
     }
-    getProductDetails(hsQuery);
   }, [hsQuery]);
 
   useEffect(() => {
@@ -176,7 +204,7 @@ const RequestQuote2 = () => {
               Product <span class="text-[red]">*</span>
             </label>
             <div class="flex flex-col relative">
-              <div class="bg-white border relative rounded-md border-gray-300 focus:outline-[#4F46E5] hover:border-[#4F46E5] flex justify-between items-center px-3">
+              <div class="bg-white border relative rounded-md border-gray-300 focus:outline-[#4F46E5] hover:border-[#4F46E5] flex justify-between items-center gap-3 px-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -196,12 +224,45 @@ const RequestQuote2 = () => {
                   type="text"
                   id="product_details"
                   autoComplete="off"
-                  class="text-sm text-gray-900  block w-full p-2.5 focus:outline-none "
+                  class="text-md text-gray-900  block w-full p-2.5 focus:outline-none "
                   placeholder="Enter commodity type or HS code"
                   required
                   onChange={(e) => setHsQuery(e.target.value)}
+                  onFocus={() => setClearProdInputIcon(true)}
+                  onBlur={() => setClearProdInputIcon(false)}
                 />
+                {!!product_details &&
+                !!product_details.value &&
+                product_details.value.length >= 2 ? (
+                  <span id="hscode" class="text-md"></span>
+                ) : null}
+                {clearProdInputIcon ? (
+                  <span
+                    class="cursor-pointer"
+                    onClick={() => clearProductInput()}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </span>
+                ) : null}
               </div>
+              {hsCodesLoading ? (
+                <div class="border m-auto absolute w-full mt-12 h-28 z-30 bg-white flex place-items-center rounded-md">
+                  <BarLoader class="m-auto" color="#4F46E5" />
+                </div>
+              ) : null}
               {productDetails && productDetails.length > 0 ? (
                 <div class="border absolute w-full mt-12 max-h-40 z-30 bg-white overflow-y-scroll overflow-x-hidden rounded-md">
                   {productDetails.map((product) => {
@@ -231,6 +292,7 @@ const RequestQuote2 = () => {
                 </div>
               ) : null}
             </div>
+            <AdditionalProductInfo />
           </div>
           {/* Delivery Type */}
           <h5 class="text-xl font-medium mb-5">Delivery</h5>

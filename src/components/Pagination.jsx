@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumbers = [];
@@ -7,17 +7,18 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   }
   return (
     <>
-     <div className='page-line'>
-     {pageNumbers.map(number => (
-          <div key={number} className='page-item'>
-            <a onClick={() => paginate(number)} className='link'>
+      <div className="page-line">
+        {pageNumbers.map((number) => (
+          <div key={number} className="page-item">
+            {/* eslint-disable-next-line */}
+            <a onClick={() => paginate(number)} className="link">
               {number}
             </a>
           </div>
         ))}
-     </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Pagination
+export default Pagination;
