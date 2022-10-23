@@ -21,6 +21,7 @@ const RequestQuote2 = () => {
   const inputCity2 = useRef("");
   const [isLoading, setIsLoading] = useState(false);
   const [clearProdInputIcon, setClearProdInputIcon] = useState(false);
+  const [additionalProductInfo, setAdditionalProductInfo] = useState(false);
   //
   const [formData, setFormData] = useState({
     delivery_mode: "Sea",
@@ -72,6 +73,7 @@ const RequestQuote2 = () => {
     let hscodespan = document.getElementById("hscode");
     hscodespan.innerText = hscode;
     product_details.value = inputProduct.current;
+    setAdditionalProductInfo(true);
     setClearProdInputIcon(true);
   };
 
@@ -80,6 +82,7 @@ const RequestQuote2 = () => {
     let hscodespan = document.getElementById("hscode");
     product_details.value = "";
     hscodespan.innerText = "";
+    setAdditionalProductInfo(false);
     setClearProdInputIcon(false);
   };
 
@@ -292,7 +295,7 @@ const RequestQuote2 = () => {
                 </div>
               ) : null}
             </div>
-            <AdditionalProductInfo />
+            {additionalProductInfo ? <AdditionalProductInfo /> : null}
           </div>
           {/* Delivery Type */}
           <h5 class="text-xl font-medium mb-5">Delivery</h5>
