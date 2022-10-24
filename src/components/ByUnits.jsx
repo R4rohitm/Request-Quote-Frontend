@@ -3,11 +3,10 @@ import React, { useState } from "react";
 const ByUnits = ({ setFormData, formData }) => {
   const [noOfComponents, setNoOfComponents] = useState([1]);
   const [dimensionsArray, setDimensionsArray] = useState([]);
-  const [anotherArray, setAnotherArray] = useState([]);
   const [dimensions, setDimensions] = useState({});
 
   const handleRemoveComponent = (index) => {
-    const list = [...anotherArray];
+    const list = formData.dimensions;
     list.splice(index, 1);
     setDimensionsArray(list);
     setFormData({
@@ -111,7 +110,6 @@ const ByUnits = ({ setFormData, formData }) => {
                         dimensionsArray[dimensionsArray.length - 1],
                       ],
                     });
-                    setAnotherArray([...formData.dimensions]);
                   }}
                   class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
                   placeholder="Gross Weight"

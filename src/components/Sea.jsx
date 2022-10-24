@@ -82,7 +82,6 @@ export default function Sea({ setFormData, formData, handleChange }) {
           id="transportation_by"
           value={selected}
           onChange={(e) => {
-            console.log(e);
             setSelected(e);
             setFormData({
               ...formData,

@@ -7,6 +7,15 @@ import AdditionalProductInfo from "./AdditionalProductInfo";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// today's date function
+
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, "0");
+var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+var yyyy = today.getFullYear();
+
+today = yyyy + "-" + mm + "-" + dd;
+
 const RequestQuote2 = () => {
   const [seaSelected, setSeaSelected] = useState(true);
   const [productDetails, setProductDetails] = useState();
@@ -443,6 +452,7 @@ const RequestQuote2 = () => {
               </label>
               <input
                 type="date"
+                min={today}
                 name="ready_to_load"
                 onChange={(e) => handleChange(e)}
                 class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
