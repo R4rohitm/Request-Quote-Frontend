@@ -74,7 +74,11 @@ const AdditionalProductInfo = () => {
           }}
           type="button"
           title="Hazardous Cargo"
-          class="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-thin text-center text-gray-500 border  rounded-full shadow-2xl  cursor-pointer hover:text-white bg-white hover:bg-gradient-to-br from-[#f12711] via-[#c99118] to-[#f5af19]"
+          className={
+            hazardousCargo
+              ? "inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-thin text-center text-gray-500 rounded-full shadow-2xl  cursor-pointer hover:text-white bg-white hover:bg-gradient-to-br from-[#f12711] via-[#c99118] to-[#f5af19] border-[1px] border-[#c99118]"
+              : "inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-thin text-center text-gray-500 border  rounded-full shadow-2xl  cursor-pointer hover:text-white bg-white hover:bg-gradient-to-br from-[#f12711] via-[#c99118] to-[#f5af19]"
+          }
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +112,11 @@ const AdditionalProductInfo = () => {
             setLiquidCargo(false);
           }}
           title="Perishable Cargo"
-          class="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-thin text-center text-gray-500 border  rounded-full shadow-2xl  cursor-pointer hover:text-white bg-white hover:bg-gradient-to-br from-[#c0c0aa] via-[#32dbe8] to-[#1cefff]"
+          className={
+            perishableCargo
+              ? "inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-thin text-center text-gray-500 rounded-full shadow-2xl  cursor-pointer hover:text-white bg-white hover:bg-gradient-to-br from-[#c0c0aa] via-[#32dbe8] to-[#1cefff] border-[1px] border-[#32dbe8]"
+              : "inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-thin text-center text-gray-500 border  rounded-full shadow-2xl  cursor-pointer hover:text-white bg-white hover:bg-gradient-to-br from-[#c0c0aa] via-[#32dbe8] to-[#1cefff]"
+          }
         >
           <svg
             class="svg-icon w-5 h-5"
@@ -134,7 +142,11 @@ const AdditionalProductInfo = () => {
             setLiquidCargo(false);
           }}
           title="Oversized Cargo"
-          class="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-thin text-center text-gray-500 border  rounded-full shadow-2xl  cursor-pointer hover:text-white bg-white hover:bg-gradient-to-br from-[#0f0c29] via-[#342e79] to-[#302b63]"
+          className={
+            oversizedCargo
+              ? "inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-thin text-center text-gray-500 rounded-full shadow-2xl  cursor-pointer hover:text-white bg-white hover:bg-gradient-to-br from-[#0f0c29] via-[#342e79] to-[#302b63] border-[1px] border-[#342e79]"
+              : "inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-thin text-center text-gray-500 border  rounded-full shadow-2xl  cursor-pointer hover:text-white bg-white hover:bg-gradient-to-br from-[#0f0c29] via-[#342e79] to-[#302b63]"
+          }
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -163,7 +175,11 @@ const AdditionalProductInfo = () => {
             setLiquidCargo(!liquidCargo);
           }}
           title="Liquid Cargo"
-          class="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-thin text-center text-gray-500 border  rounded-full shadow-2xl  cursor-pointer hover:text-white bg-white hover:bg-gradient-to-br from-[#1CD8D2] via-[#77dfb3] to-[#93EDC7]"
+          className={
+            liquidCargo
+              ? "inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-thin text-center text-gray-500 rounded-full shadow-2xl  cursor-pointer hover:text-white bg-white hover:bg-gradient-to-br from-[#1CD8D2] via-[#77dfb3] to-[#93EDC7] border-[1px] border-[#77dfb3]"
+              : "inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-thin text-center text-gray-500 border  rounded-full shadow-2xl  cursor-pointer hover:text-white bg-white hover:bg-gradient-to-br from-[#1CD8D2] via-[#77dfb3] to-[#93EDC7]"
+          }
         >
           <svg
             class="svg-icon w-5 h-5"
@@ -389,7 +405,65 @@ const AdditionalProductInfo = () => {
         </div>
       ) : null}
       {oversizedCargo ? (
-        <div class="grid gap-6 mb-6 md:grid-cols-2">Oversized Cargo</div>
+        <div class="grid gap-6 mb-6 md:grid-cols-3">
+          <div>
+            <label
+              for="length"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >
+              Length
+            </label>
+            <div class="border flex space-between items-center rounded-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] bg-white">
+              <input
+                type="text"
+                autoComplete="off"
+                class="bg-white text-gray-900 text-sm block w-[80%] p-2.5"
+                placeholder="0"
+              />
+              <div class="flex justify-center items-center border-l-2 w-[20%] text-md text-gray-500 font-thin">
+                m
+              </div>
+            </div>
+          </div>
+          <div>
+            <label
+              for="width"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >
+              Width
+            </label>
+            <div class="border flex space-between items-center rounded-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] bg-white">
+              <input
+                type="text"
+                autoComplete="off"
+                class="bg-white text-gray-900 text-sm block w-[80%] p-2.5"
+                placeholder="0"
+              />
+              <div class="flex justify-center items-center border-l-2 w-[20%] text-md text-gray-500 font-thin">
+                m
+              </div>
+            </div>
+          </div>
+          <div>
+            <label
+              for="height"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >
+              Height
+            </label>
+            <div class="border flex space-between items-center rounded-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] bg-white">
+              <input
+                type="text"
+                autoComplete="off"
+                class="bg-white text-gray-900 text-sm block w-[80%] p-2.5"
+                placeholder="0"
+              />
+              <div class="flex justify-center items-center border-l-2 w-[20%] text-md text-gray-500 font-thin">
+                m
+              </div>
+            </div>
+          </div>
+        </div>
       ) : null}
     </div>
   );
