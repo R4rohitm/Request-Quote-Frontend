@@ -55,13 +55,15 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const AdditionalProductInfo = () => {
+const AdditionalProductInfo = ({ setFormData, formData, handleChange }) => {
   const [hazardousCargo, setHazardousCargo] = useState(false);
   const [selected, setSelected] = useState(imo_class[0]);
   const [perishableCargo, setPerishableCargo] = useState(false);
   const [selectedTempType, setSelectedTempType] = useState(temptype[0]);
   const [oversizedCargo, setOversizedCargo] = useState(false);
   const [liquidCargo, setLiquidCargo] = useState(false);
+
+  //   Component
   return (
     <div>
       <div class="mt-10 px-2 grid grid-cols-2 gap-3 mb-6 md:grid-cols-4 sm:grid-cols-2 flex-wrap">
@@ -71,6 +73,19 @@ const AdditionalProductInfo = () => {
             setPerishableCargo(false);
             setOversizedCargo(false);
             setLiquidCargo(false);
+            setFormData({
+              ...formData,
+              product_details: {
+                ...formData.product_details,
+                hazardous_cargo: {
+                  ...formData.product_details.hazardous_cargo,
+                  isTrue: !hazardousCargo,
+                },
+                perishable_cargo: {},
+                oversized_cargo: {},
+                liquid_cargo: {},
+              },
+            });
           }}
           type="button"
           title="Hazardous Cargo"
@@ -110,6 +125,19 @@ const AdditionalProductInfo = () => {
             setPerishableCargo(!perishableCargo);
             setOversizedCargo(false);
             setLiquidCargo(false);
+            setFormData({
+              ...formData,
+              product_details: {
+                ...formData.product_details,
+                perishable_cargo: {
+                  ...formData.product_details.perishable_cargo,
+                  isTrue: !perishableCargo,
+                },
+                hazardous_cargo: {},
+                oversized_cargo: {},
+                liquid_cargo: {},
+              },
+            });
           }}
           title="Perishable Cargo"
           className={
@@ -140,6 +168,19 @@ const AdditionalProductInfo = () => {
             setPerishableCargo(false);
             setOversizedCargo(!oversizedCargo);
             setLiquidCargo(false);
+            setFormData({
+              ...formData,
+              product_details: {
+                ...formData.product_details,
+                oversized_cargo: {
+                  ...formData.product_details.oversized_cargo,
+                  isTrue: !oversizedCargo,
+                },
+                hazardous_cargo: {},
+                perishable_cargo: {},
+                liquid_cargo: {},
+              },
+            });
           }}
           title="Oversized Cargo"
           className={
@@ -173,6 +214,19 @@ const AdditionalProductInfo = () => {
             setPerishableCargo(false);
             setOversizedCargo(false);
             setLiquidCargo(!liquidCargo);
+            setFormData({
+              ...formData,
+              product_details: {
+                ...formData.product_details,
+                liquid_cargo: {
+                  ...formData.product_details.liquid_cargo,
+                  isTrue: !liquidCargo,
+                },
+                hazardous_cargo: {},
+                perishable_cargo: {},
+                oversized_cargo: {},
+              },
+            });
           }}
           title="Liquid Cargo"
           className={
@@ -203,6 +257,16 @@ const AdditionalProductInfo = () => {
             value={selected}
             onChange={(e) => {
               setSelected(e);
+              setFormData({
+                ...formData,
+                product_details: {
+                  ...formData.product_details,
+                  hazardous_cargo: {
+                    ...formData.product_details.hazardous_cargo,
+                    imo_class: e.imoclass,
+                  },
+                },
+              });
             }}
           >
             {({ open }) => (
@@ -294,10 +358,22 @@ const AdditionalProductInfo = () => {
             </label>
             <input
               type="number"
-              name="unnumber"
+              name="un_number"
               class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
               placeholder="0"
               required
+              onChange={(e) => {
+                setFormData({
+                  ...formData,
+                  product_details: {
+                    ...formData.product_details,
+                    hazardous_cargo: {
+                      ...formData.product_details.hazardous_cargo,
+                      un_number: e.target.value,
+                    },
+                  },
+                });
+              }}
             />
           </div>
         </div>
@@ -319,11 +395,33 @@ const AdditionalProductInfo = () => {
                 name="temperature_regime"
                 class="bg-white text-gray-900 text-sm outline-none block p-[9px] w-full"
                 placeholder="0"
+                onChange={(e) => {
+                  setFormData({
+                    ...formData,
+                    product_details: {
+                      ...formData.product_details,
+                      perishable_cargo: {
+                        ...formData.product_details.perishable_cargo,
+                        temperature: e.target.value,
+                      },
+                    },
+                  });
+                }}
               />
               <Listbox
                 value={selectedTempType.type}
                 onChange={(e) => {
                   setSelectedTempType(e);
+                  setFormData({
+                    ...formData,
+                    product_details: {
+                      ...formData.product_details,
+                      perishable_cargo: {
+                        ...formData.product_details.perishable_cargo,
+                        type: e.type,
+                      },
+                    },
+                  });
                 }}
               >
                 {({ open }) => (
@@ -419,6 +517,18 @@ const AdditionalProductInfo = () => {
                 autoComplete="off"
                 class="bg-white text-gray-900 text-sm block w-[80%] p-2.5"
                 placeholder="0"
+                onChange={(e) => {
+                  setFormData({
+                    ...formData,
+                    product_details: {
+                      ...formData.product_details,
+                      oversized_cargo: {
+                        ...formData.product_details.oversized_cargo,
+                        length: e.target.value,
+                      },
+                    },
+                  });
+                }}
               />
               <div class="flex justify-center items-center border-l-2 w-[20%] text-md text-gray-500 font-thin">
                 m
@@ -438,6 +548,18 @@ const AdditionalProductInfo = () => {
                 autoComplete="off"
                 class="bg-white text-gray-900 text-sm block w-[80%] p-2.5"
                 placeholder="0"
+                onChange={(e) => {
+                  setFormData({
+                    ...formData,
+                    product_details: {
+                      ...formData.product_details,
+                      oversized_cargo: {
+                        ...formData.product_details.oversized_cargo,
+                        width: e.target.value,
+                      },
+                    },
+                  });
+                }}
               />
               <div class="flex justify-center items-center border-l-2 w-[20%] text-md text-gray-500 font-thin">
                 m
@@ -457,6 +579,18 @@ const AdditionalProductInfo = () => {
                 autoComplete="off"
                 class="bg-white text-gray-900 text-sm block w-[80%] p-2.5"
                 placeholder="0"
+                onChange={(e) => {
+                  setFormData({
+                    ...formData,
+                    product_details: {
+                      ...formData.product_details,
+                      oversized_cargo: {
+                        ...formData.product_details.oversized_cargo,
+                        height: e.target.value,
+                      },
+                    },
+                  });
+                }}
               />
               <div class="flex justify-center items-center border-l-2 w-[20%] text-md text-gray-500 font-thin">
                 m

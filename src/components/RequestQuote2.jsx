@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { HashLoader, BarLoader } from "react-spinners";
+import { BeatLoader, BarLoader } from "react-spinners";
 
 import Sea from "./Sea";
 import Air from "./Air";
@@ -35,6 +35,7 @@ const RequestQuote2 = () => {
   const [formData, setFormData] = useState({
     delivery_mode: "Sea",
     dimensions: [],
+    product_details: {},
   });
   console.log(formData);
 
@@ -304,7 +305,13 @@ const RequestQuote2 = () => {
                 </div>
               ) : null}
             </div>
-            {additionalProductInfo ? <AdditionalProductInfo /> : null}
+            {additionalProductInfo ? (
+              <AdditionalProductInfo
+                formData={formData}
+                setFormData={setFormData}
+                handleChange={handleChange}
+              />
+            ) : null}
           </div>
           {/* Delivery Type */}
           <h5 class="text-xl font-medium mb-5">Delivery</h5>
@@ -470,7 +477,7 @@ const RequestQuote2 = () => {
             </label>
             <textarea
               type="text"
-              name="additional_infromation"
+              name="additional_information"
               onChange={(e) => handleChange(e)}
               class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
               placeholder="Write a message..."
@@ -572,7 +579,7 @@ const RequestQuote2 = () => {
           </div>
 
           {isLoading ? (
-            <HashLoader color="#4F46E5" />
+            <BeatLoader color="#4F46E5" />
           ) : (
             <button
               type="submit"
