@@ -2,19 +2,6 @@ import React from 'react'
 
 const Posts = ({ posts }) => {
     const handleacc = () =>{     
-        // var acc = document.getElementsByClassName("accordion");
-        // var i;
-        // for (i = 0; i < acc.length; i++) {
-        //   acc[i].addEventListener("click", function() {
-        //     this.classList.toggle("active");
-        //     var panel = this.nextElementSibling;
-        //     if (panel.style.maxHeight) {
-        //       panel.style.maxHeight = null;
-        //     } else {
-        //       panel.style.maxHeight = panel.scrollHeight + "px";
-        //     } 
-        //   });
-        // }
         var acc = document.getElementsByClassName("accordion");
         var i;
         for (i = 0; i < acc.length; i++) {
@@ -33,7 +20,7 @@ const Posts = ({ posts }) => {
     <>
      {posts && posts.map((e)=>{
       
-        console.log(e)
+        console.log(e);
                           return (
                               <>
                               <button onClick={handleacc} class="accordion">
@@ -75,6 +62,46 @@ const Posts = ({ posts }) => {
                                  <td>Level</td>
                                  <td>{e.product_details.level}</td>
                                  </tr>
+                                 {e.product_details.hazardous_cargo? <> 
+                                 <tr>
+                                 <td>Hazardous Cargo</td>
+                                 <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                 <td>IMO Class</td>
+                                 <td>{e.product_details.hazardous_cargo.imo_class}</td>
+                                 </tr>
+                                 <tr>
+                                 <td>UN-Number</td>
+                                 <td>{e.product_details.hazardous_cargo.un_number}</td>
+                                 </tr>
+                                 </>:<></>}
+                                 {e.product_details.perishable_cargo? <> 
+                                 <tr>
+                                 <td>Perishable Cargo</td>
+                                 <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                 <td>Temperature</td>
+                                 <td>{e.product_details.perishable_cargo.temperature}{e.product_details.perishable_cargo.type}</td>
+                                 </tr>
+                                 </>:<></>}
+                                 {e.product_details.oversized_cargo? <> 
+                                 <tr>
+                                 <td>Oversized Cargo</td>
+                                 <td>Yes</td>
+                                 </tr>
+                                 <tr>
+                                 <td>Oversized Cargo Dimentions</td>
+                                 <td>Length : {e.product_details.oversized_cargo.length} &nbsp;&nbsp;&nbsp; Height : {e.product_details.oversized_cargo.height} &nbsp;&nbsp;&nbsp; Width : {e.product_details.oversized_cargo.width}</td>
+                                 </tr>
+                                 </>:<></>}
+                                 {e.product_details.liquid_cargo? <> 
+                                 <tr>
+                                 <td>Liquid Cargo</td>
+                                 <td>Yes</td>
+                                 </tr>
+                                 </>:<></>}
                                  <tr>
                                  {/* Cargo details */}
                                  <td>Delivery Mode</td>
@@ -84,6 +111,7 @@ const Posts = ({ posts }) => {
                                  <td>Transportation By</td>
                                  <td>{e.transportation_by}</td>
                                  </tr>
+                                 {e.transportation_by == "FCL" || e.transportation_by=="ULD"? <>
                                  <tr>
                                  <td>Container Type</td>
                                  <td>{e.container_type}</td>
@@ -92,9 +120,15 @@ const Posts = ({ posts }) => {
                                  <td>Container Quantity</td>
                                  <td>{e.containers_quantity}</td>
                                  </tr>
+                                 </>:<></>}
+                                 {e.transportation_by=="Bulk"?<>
                                  <tr>
                                  <td>Ship Type</td>
                                  <td>{e.ship_type}</td>
+                                 </tr>
+                                 <tr>
+                                 <td>Gross Weight</td>
+                                 <td>{e.gross_weight}</td>
                                  </tr>
                                  <tr>
                                  <td>Loading Rate</td>
@@ -104,10 +138,8 @@ const Posts = ({ posts }) => {
                                  <td>Discharging Rate</td>
                                  <td>{e.discharging_rate}</td>
                                  </tr>
-                                 <tr>
-                                 <td>Gross Weight</td>
-                                 <td>{e.gross_weight}</td>
-                                 </tr>
+                                 </>:<></>}
+                                 {e.transportation_by=="LCL" || e.transportation_by=="SC"?<>
                                  <tr>
                                  <td>Weight</td>
                                  <td>{e.weight}mt</td>
@@ -116,6 +148,7 @@ const Posts = ({ posts }) => {
                                  <td>Volume</td>
                                  <td>{e.volume}m3</td>
                                  </tr>
+                                 </>:<></>}
                                  {/* Loading details */}
                                  <tr>
                                  <td>Location From</td>
@@ -175,7 +208,6 @@ const Posts = ({ posts }) => {
                                 </tr>
                                 </table>
                                 </div>
-                              
                               </>
                           )
                          })}

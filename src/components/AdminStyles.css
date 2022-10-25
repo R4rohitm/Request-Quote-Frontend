@@ -242,7 +242,6 @@
   padding: 15px;
   color: azure;
 }
-
 #customers {
     border-collapse: collapse;
     width: 100%;
@@ -323,7 +322,7 @@
 
 .active,
 .accordion:hover {
-  background-color: blueviolet;
+  background-color: #1f2937;
 }
 
 /* .accordion:after {
