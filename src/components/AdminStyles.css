@@ -19,25 +19,24 @@
 
 .searchform {
   /* border:1px solid blueviolet; */
-  width: 70%;
+  width: 100%;
   margin: auto;
-  height: 50px;
-  /* background-color: #1f2937; */
   cursor: pointer;
-  text-align: center;
 }
 .searchform input[type="text"] {
-  width: 80%;
+  margin-top: 5px;
+  width: 100%;
   border: none;
   padding: 12px 20px;
   box-sizing: border-box;
   background-color: #1f2937;
+  border: 1px solid blueviolet;
   color: azure;
   border-radius: 5px;
 }
 .searchform input[type="submit"] {
-  margin-left: 5px;
-  width: 9%;
+  margin-top: 5px;
+  width: 100px;
   border: none;
   padding: 12px 20px;
   box-sizing: border-box;
@@ -89,8 +88,9 @@
   justify-content: center;
 }
 .page-line{
-  width:50%;
+  width:100%;
   margin: auto;
+  position:sticky;
   height:50px;
   background-color: #1f2937;
   color: azure;
@@ -98,17 +98,20 @@
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+  cursor: pointer;
+}
+.page-line li:hover{
+ color: blueviolet;
 }
 .link{
   border:1px solid azure;
   margin-left: 5px;
-  padding: 5px;
-  border-radius: 5px;
+  padding: 8px;
+  border-radius: 10%;
   cursor: pointer;
 }
 .link:hover{
-  background-color: azure;
-  color: black;
+  background-color: blueviolet;
 }
 .data {
   width: 100%;
@@ -231,12 +234,12 @@
   text-align: center;
   border-radius: 10px;
 }
+
 .searchfil {
   margin-top: 10px;
-  height: 300px;
   background-color: #1f2937;
   border-radius: 5px;
-  padding: 20px;
+  padding: 15px;
   color: azure;
 }
 #customers {
@@ -284,13 +287,27 @@
   border-radius: 5px;
   margin-top: 5px;
 }
+.spinner-4 {
+  width: 50px;
+  --b: 8px; /* the border thickness */
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 1px;
+  background: conic-gradient(#0000 10%,blueviolet) content-box;
+  -webkit-mask:
+    repeating-conic-gradient(#0000 0deg,#000 1deg 20deg,#0000 21deg 36deg),
+    radial-gradient(farthest-side,#0000 calc(100% - var(--b) - 1px),#000 calc(100% - var(--b)));
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+  animation:s4 1s infinite steps(10);
+}
+@keyframes s4 {to{transform: rotate(1turn)}}
 .accordion_nores{
    background-color: #1f2937;
    color: azure;
    cursor: pointer;
    padding: 10px;
    width: 100%;
-   height: 50px;
    border: none;
    text-align: left;
    outline: none;
@@ -298,6 +315,9 @@
    transition: 0.4s;
    border-radius: 5px;
    margin-top: 5px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 
 .active,
