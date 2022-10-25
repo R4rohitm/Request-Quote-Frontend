@@ -6,6 +6,7 @@ import Air from "./Air";
 import AdditionalProductInfo from "./AdditionalProductInfo";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AssociatedServices from "./AssociatedServices";
 
 // today's date function
 
@@ -31,6 +32,7 @@ const RequestQuote2 = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [clearProdInputIcon, setClearProdInputIcon] = useState(false);
   const [additionalProductInfo, setAdditionalProductInfo] = useState(false);
+
   //
   const [formData, setFormData] = useState({
     delivery_mode: "Sea",
@@ -483,6 +485,8 @@ const RequestQuote2 = () => {
               placeholder="Write a message..."
             />
           </div>
+          <h5 class="relative text-xl font-medium mb-5">Associated services</h5>
+          <AssociatedServices />
           <h5 class="text-xl font-medium mb-5">Contact Details</h5>
           <div class="grid gap-6 mb-6 md:grid-cols-2">
             <div>
