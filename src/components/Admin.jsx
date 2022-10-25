@@ -22,6 +22,11 @@ const Admin = () => {
         axios.get(`https://intoglo-first-api.herokuapp.com/quote/fetchall`)
         .then(({data})=>{
              setRq(data);
+             if(data.length <=0)
+             {
+               Seterrmsg("No Results found !");
+               setShowModal(true);
+             }
         });
        },[])
 

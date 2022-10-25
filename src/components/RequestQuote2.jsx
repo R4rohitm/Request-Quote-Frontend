@@ -472,7 +472,7 @@ const RequestQuote2 = () => {
           </div>
           <div class="mb-10">
             <label
-              for="additional_infromation"
+              for="additional_information"
               class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
             >
               Additional Information
