@@ -54,6 +54,7 @@ const Posts = ({ posts }) => {
                                  <td>Request Quote Id </td>
                                  <td>{e.id}</td>
                                  </tr>
+                                 {/* Product details */}
                                  <tr>
                                  <td>Product Name </td>
                                  <td>{e.product_details.name}</td>
@@ -75,6 +76,7 @@ const Posts = ({ posts }) => {
                                  <td>{e.product_details.level}</td>
                                  </tr>
                                  <tr>
+                                 {/* Cargo details */}
                                  <td>Delivery Mode</td>
                                  <td>{e.delivery_mode}</td>
                                  </tr>
@@ -91,6 +93,22 @@ const Posts = ({ posts }) => {
                                  <td>{e.containers_quantity}</td>
                                  </tr>
                                  <tr>
+                                 <td>Ship Type</td>
+                                 <td>{e.ship_type}</td>
+                                 </tr>
+                                 <tr>
+                                 <td>Loading Rate</td>
+                                 <td>{e.loading_rate}</td>
+                                 </tr>
+                                 <tr>
+                                 <td>Discharging Rate</td>
+                                 <td>{e.discharging_rate}</td>
+                                 </tr>
+                                 <tr>
+                                 <td>Gross Weight</td>
+                                 <td>{e.gross_weight}</td>
+                                 </tr>
+                                 <tr>
                                  <td>Weight</td>
                                  <td>{e.weight}mt</td>
                                  </tr>
@@ -98,6 +116,7 @@ const Posts = ({ posts }) => {
                                  <td>Volume</td>
                                  <td>{e.volume}m3</td>
                                  </tr>
+                                 {/* Loading details */}
                                  <tr>
                                  <td>Location From</td>
                                  <td>{e.location_from}</td>
@@ -110,10 +129,14 @@ const Posts = ({ posts }) => {
                                  <td>Ready to load</td>
                                  <td>{e.ready_to_load}</td>
                                  </tr>
-                                 {/* <tr>
+                                 <tr>
+                                 <td>Additional Information</td>
+                                 <td>{e.additional_information}</td>
+                                 </tr>
+                                 <tr>
                                  <td>Associated services</td>
                                  <td>{e.associated_services}</td>
-                                 </tr> */}
+                                 </tr>
                                 {e.by_units ? <>
                                   { e.dimensions.map((c)=>{
                                   return(
@@ -133,6 +156,7 @@ const Posts = ({ posts }) => {
                                 <td>N/A</td>
                                 </tr>
                                 </>}
+                                {/* Contact info */}
                                 <tr>
                                 <td>First_Name </td>
                                 <td>{e.first_name}</td>
