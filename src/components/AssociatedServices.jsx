@@ -11,7 +11,7 @@ const AssociatedServices = ({ formData, setFormData }) => {
   const [certificationInfo, setCertificationInfo] = useState(false);
   const [customsInfo, setCustomsInfo] = useState(false);
   return (
-    <div class="flex items-center gap-2 mb-6 sm:w-[100%] md:w-[120%] lg:w-[140%] flex-wrap">
+    <div class="flex flex-col items-start  sm:flex-row sm:items-center gap-x-6 mb-6 w-[80%] sm:w-full xl:w-[140%] xl:gap-x-3 flex-wrap">
       <button
         type="button"
         onClick={() => {
@@ -28,8 +28,8 @@ const AssociatedServices = ({ formData, setFormData }) => {
         onMouseLeave={() => setInsuranceInfo(false)}
         class={
           insurance
-            ? "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border rounded-full md:w-auto  border-[#4F46E5]"
-            : "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
+            ? "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2 text-black hover:shadow-2xl shadow-md border rounded-full md:w-auto  border-[#4F46E5]"
+            : "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
         }
       >
         <input
@@ -68,8 +68,8 @@ const AssociatedServices = ({ formData, setFormData }) => {
         onMouseLeave={() => setInspectionInfo(false)}
         class={
           inspection
-            ? "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto  border-[#4F46E5]"
-            : "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
+            ? "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2 text-black hover:shadow-2xl sm:ml-4 xl:ml-0 shadow-md border border-transparent rounded-full md:w-auto  border-[#4F46E5]"
+            : "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2 text-black hover:shadow-2xl sm:ml-4 xl:ml-0 shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
         }
       >
         <input
@@ -107,8 +107,8 @@ const AssociatedServices = ({ formData, setFormData }) => {
         onMouseLeave={() => setCertificationInfo(false)}
         class={
           certification
-            ? "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto  border-[#4F46E5]"
-            : "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
+            ? "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto  border-[#4F46E5]"
+            : "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
         }
       >
         <input
@@ -148,8 +148,8 @@ const AssociatedServices = ({ formData, setFormData }) => {
         onMouseLeave={() => setCustomsInfo(false)}
         class={
           customs
-            ? "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto  border-[#4F46E5]"
-            : "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
+            ? "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto  border-[#4F46E5]"
+            : "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
         }
       >
         <input
