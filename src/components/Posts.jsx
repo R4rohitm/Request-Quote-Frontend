@@ -20,7 +20,7 @@ const Posts = ({ posts }) => {
     <>
       {posts &&
         posts.map((e) => {
-          console.log(e);
+          console.log(e.associated_services);
           return (
             <>
               <button onClick={handleacc} class="accordion">
@@ -129,6 +129,16 @@ const Posts = ({ posts }) => {
                   ) : (
                     <></>
                   )}
+                  {e.incoterms ? (
+                    <>
+                      <tr>
+                        <td>Incoterms</td>
+                        <td>{e.incoterms}</td>
+                      </tr>
+                    </>
+                  ) : (
+                    <></>
+                  )}
                   <tr>
                     {/* Cargo details */}
                     <td>Delivery Mode</td>
@@ -175,7 +185,8 @@ const Posts = ({ posts }) => {
                   ) : (
                     <></>
                   )}
-                  {!e.by_units ? (
+                  {!e.by_units && (e.transportation_by === "LCL" ||
+                  e.transportation_by === "SC")? (
                     <>
                       <tr>
                         <td>Weight</td>
@@ -206,10 +217,36 @@ const Posts = ({ posts }) => {
                     <td>Additional Information</td>
                     <td>{e.additional_information}</td>
                   </tr>
-                  {/* <tr>
-                                 <td>Associated services</td>
-                                 <td>{e.associated_services}</td>
-                                 </tr> */}
+                  {e.associated_services ? (
+                    <>
+                      {e.associated_services.inspection ?<>
+                      <tr>
+                      <td>Associated Services</td>
+                      <td>Inspection</td>
+                      </tr>
+                      </>:<></>}
+                      {e.associated_services.insurance ?<>
+                      <tr>
+                      <td>Associated Services</td>
+                      <td>Insurance</td>
+                      </tr>
+                      </>:<></>}
+                      {e.associated_services.certification ?<>
+                      <tr>
+                      <td>Associated Services</td>
+                      <td>Certification</td>
+                      </tr>
+                      </>:<></>}
+                      {e.associated_services.customs_clearance ?<>
+                      <tr>
+                      <td>Associated Services</td>
+                      <td>Customs Clearance</td>
+                      </tr>
+                      </>:<></>}
+                    </>
+                  ) : (
+                    <></>
+                  )}
                   {e.by_units ? (
                     <>
                       {e.dimensions.map((c) => {
