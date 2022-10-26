@@ -330,14 +330,19 @@ export default function Sea({ setFormData, formData, handleChange }) {
                   >
                     Weight <span class="text-[red]">*</span>
                   </label>
-                  <input
-                    type="number"
-                    name="weight"
-                    onChange={(e) => handleChange(e)}
-                    class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
-                    placeholder="0"
-                    required
-                  />
+                  <div class="flex items-center bg-white rounded-sm border border-gray-300 focus:outline-[#4F46E5] hover:border-[#4F46E5]  w-full">
+                    <input
+                      type="number"
+                      name="weight"
+                      onChange={(e) => handleChange(e)}
+                      class="bg-white text-gray-900 text-sm p-2.5 outline-none w-[85%]"
+                      placeholder="0"
+                      required
+                    />
+                    <div class="w-[15%] border-l-2 border-gray-300 text-gray-500 text-sm flex justify-center items-center">
+                      kg
+                    </div>
+                  </div>
                 </div>
                 <div>
                   <label
@@ -346,14 +351,19 @@ export default function Sea({ setFormData, formData, handleChange }) {
                   >
                     Volume <span class="text-[red]">*</span>
                   </label>
-                  <input
-                    type="number"
-                    name="volume"
-                    onChange={(e) => handleChange(e)}
-                    class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
-                    placeholder="0"
-                    required
-                  />
+                  <div class="flex items-center bg-white rounded-sm border border-gray-300 focus:outline-[#4F46E5] hover:border-[#4F46E5]  w-full">
+                    <input
+                      type="number"
+                      name="volume"
+                      onChange={(e) => handleChange(e)}
+                      class="bg-white text-gray-900 text-sm p-2.5 outline-none w-[85%]"
+                      placeholder="0"
+                      required
+                    />
+                    <div class="w-[15%] border-l-2 border-gray-300 text-gray-500 text-sm flex justify-center items-center">
+                      m³
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
@@ -461,13 +471,19 @@ export default function Sea({ setFormData, formData, handleChange }) {
               >
                 Gross Weight <span class="text-[red]">*</span>
               </label>
-              <input
-                type="number"
-                name="gross_weight"
-                onChange={(e) => handleChange(e)}
-                class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
-                required
-              />
+              <div class="flex items-center bg-white rounded-sm border border-gray-300 focus:outline-[#4F46E5] hover:border-[#4F46E5]  w-full">
+                <input
+                  type="number"
+                  name="gross_weight"
+                  onChange={(e) => handleChange(e)}
+                  class="bg-white text-gray-900 text-sm p-2.5 outline-none w-[85%]"
+                  placeholder="0"
+                  required
+                />
+                <div class="w-[15%] border-l-2 border-gray-300 text-gray-500 text-sm flex justify-center items-center">
+                  kg
+                </div>
+              </div>
             </div>
           </div>
           <div class="grid gap-6 mb-8 md:grid-cols-2">
@@ -492,12 +508,18 @@ export default function Sea({ setFormData, formData, handleChange }) {
               >
                 Discharging Rate
               </label>
-              <input
-                type="number"
-                name="discharging_rate"
-                onChange={(e) => handleChange(e)}
-                class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
-              />
+              <div class="flex items-center bg-white rounded-sm border border-gray-300 focus:outline-[#4F46E5] hover:border-[#4F46E5]  w-full">
+                <input
+                  type="number"
+                  name="discharging_rate"
+                  onChange={(e) => handleChange(e)}
+                  class="bg-white text-gray-900 text-sm p-2.5 outline-none w-[80%]"
+                  placeholder="0"
+                />
+                <div class="w-[20%] border-l-2 border-gray-300 text-gray-500 text-sm flex justify-center items-center">
+                  kg/day
+                </div>
+              </div>
             </div>
           </div>
         </>
