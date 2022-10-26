@@ -8,7 +8,7 @@ const Incoterms = ({ formData, setFormData }) => {
   const [dap, setDap] = useState(false);
   const [ddp, setDdp] = useState(false);
   return (
-    <div class="grid gap-6 mb-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4">
+    <div class="grid gap-2 mb-6 grid-cols-3 sm:grid-cols-3 sm:w-[75%] md:grid-cols-4 md:w-[80%] lg:grid-cols-6 xl:grid-cols-6 lg:w-[120%] xl:w-full">
       <button
         type="button"
         onClick={() => {
@@ -22,8 +22,8 @@ const Incoterms = ({ formData, setFormData }) => {
         }}
         class={
           exw
-            ? "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border rounded-full md:w-auto  border-[#4F46E5]"
-            : "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
+            ? "relative inline-flex items-center justify-between gap-2 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border rounded-full md:w-auto  border-[#4F46E5]"
+            : "relative inline-flex items-center justify-between gap-2 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
         }
       >
         <input
@@ -50,8 +50,8 @@ const Incoterms = ({ formData, setFormData }) => {
         }}
         class={
           fob
-            ? "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border rounded-full md:w-auto  border-[#4F46E5]"
-            : "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
+            ? "relative inline-flex items-center justify-between gap-2 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border rounded-full md:w-auto  border-[#4F46E5]"
+            : "relative inline-flex items-center justify-between gap-2 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
         }
       >
         <input
@@ -78,8 +78,8 @@ const Incoterms = ({ formData, setFormData }) => {
         }}
         class={
           cfr
-            ? "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border rounded-full md:w-auto  border-[#4F46E5]"
-            : "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
+            ? "relative inline-flex items-center justify-between gap-2 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border rounded-full md:w-auto  border-[#4F46E5]"
+            : "relative inline-flex items-center justify-between gap-2 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
         }
       >
         <input
@@ -106,8 +106,8 @@ const Incoterms = ({ formData, setFormData }) => {
         }}
         class={
           cif
-            ? "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border rounded-full md:w-auto  border-[#4F46E5]"
-            : "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
+            ? "relative inline-flex items-center justify-between gap-2 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border rounded-full md:w-auto  border-[#4F46E5]"
+            : "relative inline-flex items-center justify-between gap-2 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
         }
       >
         <input
@@ -134,8 +134,8 @@ const Incoterms = ({ formData, setFormData }) => {
         }}
         class={
           dap
-            ? "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border rounded-full md:w-auto  border-[#4F46E5]"
-            : "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
+            ? "relative inline-flex items-center justify-between gap-2 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border rounded-full md:w-auto  border-[#4F46E5]"
+            : "relative inline-flex items-center justify-between gap-2 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
         }
       >
         <input
@@ -162,8 +162,8 @@ const Incoterms = ({ formData, setFormData }) => {
         }}
         class={
           ddp
-            ? "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border rounded-full md:w-auto  border-[#4F46E5]"
-            : "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
+            ? "relative inline-flex items-center justify-between gap-2 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border rounded-full md:w-auto  border-[#4F46E5]"
+            : "relative inline-flex items-center justify-between gap-2 mb-2 px-6 py-2.5 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
         }
       >
         <input
