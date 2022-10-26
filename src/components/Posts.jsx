@@ -35,7 +35,7 @@ const Posts = ({ posts }) => {
                               <div>{e.phone}</div>
                               </div>
                               </button>
-                                 <div class="panel">
+                              <div class="panel">
                                  <table id="customers">
                                  <tr>
                                  <td>Request Quote Id </td>
@@ -166,10 +166,10 @@ const Posts = ({ posts }) => {
                                  <td>Additional Information</td>
                                  <td>{e.additional_information}</td>
                                  </tr>
-                                 <tr>
+                                 {/* <tr>
                                  <td>Associated services</td>
                                  <td>{e.associated_services}</td>
-                                 </tr>
+                                 </tr> */}
                                 {e.by_units ? <>
                                   { e.dimensions.map((c)=>{
                                   return(
@@ -207,7 +207,7 @@ const Posts = ({ posts }) => {
                                 <td>{e.phone}</td>
                                 </tr>
                                 </table>
-                                </div>
+                              </div>
                               </>
                           )
                          })}
