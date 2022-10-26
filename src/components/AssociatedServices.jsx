@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const AssociatedServices = () => {
+const AssociatedServices = ({ formData, setFormData }) => {
   const [insurance, setInsurance] = useState(false);
   const [inspection, setInspection] = useState(false);
   const [certification, setCertification] = useState(false);
@@ -14,7 +14,16 @@ const AssociatedServices = () => {
     <div class="flex items-center gap-2 mb-6 sm:w-[100%] md:w-[120%] lg:w-[140%] flex-wrap">
       <button
         type="button"
-        onClick={() => setInsurance(!insurance)}
+        onClick={() => {
+          setInsurance(!insurance);
+          setFormData({
+            ...formData,
+            associated_services: {
+              ...formData.associated_services,
+              insurance: !insurance,
+            },
+          });
+        }}
         onMouseEnter={() => setInsuranceInfo(true)}
         onMouseLeave={() => setInsuranceInfo(false)}
         class={
@@ -45,7 +54,16 @@ const AssociatedServices = () => {
       </button>
       <button
         type="button"
-        onClick={() => setInspection(!inspection)}
+        onClick={() => {
+          setInspection(!inspection);
+          setFormData({
+            ...formData,
+            associated_services: {
+              ...formData.associated_services,
+              inspection: !inspection,
+            },
+          });
+        }}
         onMouseEnter={() => setInspectionInfo(true)}
         onMouseLeave={() => setInspectionInfo(false)}
         class={
@@ -75,7 +93,16 @@ const AssociatedServices = () => {
       </button>
       <button
         type="button"
-        onClick={() => setCertification(!certification)}
+        onClick={() => {
+          setCertification(!certification);
+          setFormData({
+            ...formData,
+            associated_services: {
+              ...formData.associated_services,
+              certification: !certification,
+            },
+          });
+        }}
         onMouseEnter={() => setCertificationInfo(true)}
         onMouseLeave={() => setCertificationInfo(false)}
         class={
@@ -107,7 +134,16 @@ const AssociatedServices = () => {
       </button>
       <button
         type="button"
-        onClick={() => setCustoms(!customs)}
+        onClick={() => {
+          setCustoms(!customs);
+          setFormData({
+            ...formData,
+            associated_services: {
+              ...formData.associated_services,
+              customs: !customs,
+            },
+          });
+        }}
         onMouseEnter={() => setCustomsInfo(true)}
         onMouseLeave={() => setCustomsInfo(false)}
         class={

@@ -517,7 +517,7 @@ const RequestQuote2 = () => {
             />
           </div>
           <h5 class="relative text-xl font-medium mb-5">Associated services</h5>
-          <AssociatedServices />
+          <AssociatedServices formData={formData} setFormData={setFormData} />
           <h5 class="text-xl font-medium mb-5">Contact Details</h5>
           <div class="grid gap-6 mb-6 md:grid-cols-2">
             <div>
