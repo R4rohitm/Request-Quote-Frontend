@@ -62,7 +62,7 @@ function classNames(...classes) {
 
 export default function Air({ setFormData, formData, handleChange }) {
   const [selected, setSelected] = useState(transportation[0]);
-  const [selectedContainer, setSelectedContainer] = useState(container_type[0]);
+  const [selectedContainer, setSelectedContainer] = useState();
   const [byUnits, setByUnits] = useState(false);
 
   return (
@@ -258,7 +258,11 @@ export default function Air({ setFormData, formData, handleChange }) {
                   <Listbox.Button className="relative w-full cursor-default rounded-md border hover:border-[#4F46E5] border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
                     <span className="flex items-center">
                       <span className="ml-3 block truncate">
-                        {selectedContainer.container_type}
+                        {selectedContainer?.container_type ? (
+                          selectedContainer.container_type
+                        ) : (
+                          <p class="text-gray-400">Choose Container</p>
+                        )}
                       </span>
                     </span>
                     <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">

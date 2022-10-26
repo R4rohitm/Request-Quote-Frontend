@@ -39,6 +39,7 @@ const RequestQuote2 = () => {
   //
   const [formData, setFormData] = useState({
     delivery_mode: "Sea",
+    transportation_by: "FCL",
     dimensions: [],
     product_details: {},
   });
@@ -330,7 +331,11 @@ const RequestQuote2 = () => {
               <button
                 type="button"
                 onClick={() => {
-                  setFormData({ ...formData, delivery_mode: "Sea" });
+                  setFormData({
+                    ...formData,
+                    delivery_mode: "Sea",
+                    transportation_by: "FCL",
+                  });
                   setSeaSelected(true);
                 }}
                 className={
@@ -362,7 +367,11 @@ const RequestQuote2 = () => {
               <button
                 type="button"
                 onClick={() => {
-                  setFormData({ ...formData, delivery_mode: "Air" });
+                  setFormData({
+                    ...formData,
+                    delivery_mode: "Air",
+                    transportation_by: "SC",
+                  });
                   setSeaSelected(false);
                 }}
                 className={
