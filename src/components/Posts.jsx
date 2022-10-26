@@ -190,11 +190,11 @@ const Posts = ({ posts }) => {
                     <>
                       <tr>
                         <td>Weight</td>
-                        <td>{e.weight}mt</td>
+                        <td>{e.weight} kg</td>
                       </tr>
                       <tr>
                         <td>Volume</td>
-                        <td>{e.volume}m3</td>
+                        <td>{e.volume} m3</td>
                       </tr>
                     </>
                   ) : (
