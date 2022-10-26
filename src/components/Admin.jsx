@@ -130,7 +130,7 @@ const Admin = () => {
 
   const handle_fcl = () => {
     axios
-      .get(`https://intoglo-first-api.herokuapp.com/quote/fetchbymode/FCL`)
+      .get(`https://intoglo-first-api.herokuapp.com/quote/fetchByMode/sea?transportation_by=FCL`)
       .then(({ res }) => {
         setRq(res);
       })

@@ -175,11 +175,11 @@ const Posts = ({ posts }) => {
                       </tr>
                       <tr>
                         <td>Loading Rate</td>
-                        <td>{e.loading_rate}</td>
+                        <td>{e.loading_rate} kg/day</td>
                       </tr>
                       <tr>
                         <td>Discharging Rate</td>
-                        <td>{e.discharging_rate}</td>
+                        <td>{e.discharging_rate} kg/day</td>
                       </tr>
                     </>
                   ) : (
