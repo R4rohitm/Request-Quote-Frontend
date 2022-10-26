@@ -140,7 +140,7 @@ const AssociatedServices = ({ formData, setFormData }) => {
             ...formData,
             associated_services: {
               ...formData.associated_services,
-              customs: !customs,
+              customs_clearance: !customs,
             },
           });
         }}
