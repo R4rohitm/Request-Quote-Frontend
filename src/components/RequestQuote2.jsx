@@ -509,6 +509,7 @@ const RequestQuote2 = () => {
             </label>
             <textarea
               type="text"
+              style={{ resize: "none" }}
               name="additional_information"
               onChange={(e) => handleChange(e)}
               class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
@@ -516,7 +517,7 @@ const RequestQuote2 = () => {
             />
           </div>
           <h5 class="relative text-xl font-medium mb-5">Associated services</h5>
-          <AssociatedServices />
+          <AssociatedServices formData={formData} setFormData={setFormData} />
           <h5 class="text-xl font-medium mb-5">Contact Details</h5>
           <div class="grid gap-6 mb-6 md:grid-cols-2">
             <div>
