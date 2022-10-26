@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { BeatLoader, BarLoader } from "react-spinners";
+import { useNavigate } from "react-router-dom";
 
 import Sea from "./Sea";
 import Air from "./Air";
@@ -42,6 +43,8 @@ const RequestQuote2 = () => {
     product_details: {},
   });
   console.log(formData);
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -657,7 +660,7 @@ const RequestQuote2 = () => {
                         src="https://www.svgrepo.com/show/243729/checked-success.svg"
                         alt=""
                       />{" "}
-                      <h4>Request Quoted Successfully</h4>
+                      <h4>Your Request has been sent Successfully</h4>
                     </div>
                   </h3>
                   <button
@@ -673,8 +676,7 @@ const RequestQuote2 = () => {
                 <div className="relative p-6 flex-auto">
                   <p className="my-4 text-slate-500 text-lg leading-relaxed">
                     Thank you for filling the request quote form , we will get
-                    back to you on the given email or phone number shortly. keep
-                    exploring.
+                    back to you on the given email or phone number shortly.
                   </p>
                 </div>
                 {/*footer*/}
@@ -684,7 +686,7 @@ const RequestQuote2 = () => {
                     type="button"
                     onClick={() => {
                       setShowModal(false);
-                      window.location.reload();
+                      navigate("/");
                     }}
                   >
                     Close
