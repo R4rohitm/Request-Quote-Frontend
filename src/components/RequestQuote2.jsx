@@ -7,6 +7,7 @@ import AdditionalProductInfo from "./AdditionalProductInfo";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AssociatedServices from "./AssociatedServices";
+import Incoterms from "./Incoterms";
 
 // today's date function
 
@@ -315,6 +316,9 @@ const RequestQuote2 = () => {
               />
             ) : null}
           </div>
+          {/* Incoterms */}
+          <h5 class="text-xl font-medium mb-5">Incoterms</h5>
+          <Incoterms formData={formData} setFormData={setFormData} />
           {/* Delivery Type */}
           <h5 class="text-xl font-medium mb-5">Delivery</h5>
           <div class="flex space-x-2 justify-start mb-10">
