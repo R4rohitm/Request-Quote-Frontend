@@ -509,6 +509,7 @@ const RequestQuote2 = () => {
             </label>
             <textarea
               type="text"
+              style={{ resize: "none" }}
               name="additional_information"
               onChange={(e) => handleChange(e)}
               class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
