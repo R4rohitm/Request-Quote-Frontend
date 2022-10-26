@@ -515,7 +515,7 @@ const AdditionalProductInfo = ({ setFormData, formData, handleChange }) => {
               <input
                 type="text"
                 autoComplete="off"
-                class="bg-white text-gray-900 text-sm block w-[80%] p-2.5"
+                class="bg-white text-gray-900 text-sm block w-[80%] p-2.5 outline-none focus:outline-none"
                 placeholder="0"
                 onChange={(e) => {
                   setFormData({
@@ -546,7 +546,7 @@ const AdditionalProductInfo = ({ setFormData, formData, handleChange }) => {
               <input
                 type="text"
                 autoComplete="off"
-                class="bg-white text-gray-900 text-sm block w-[80%] p-2.5"
+                class="bg-white text-gray-900 text-sm block w-[80%] p-2.5 outline-none focus:outline-none"
                 placeholder="0"
                 onChange={(e) => {
                   setFormData({
@@ -577,7 +577,7 @@ const AdditionalProductInfo = ({ setFormData, formData, handleChange }) => {
               <input
                 type="text"
                 autoComplete="off"
-                class="bg-white text-gray-900 text-sm block w-[80%] p-2.5"
+                class="bg-white text-gray-900 text-sm block w-[80%] p-2.5 outline-none focus:outline-none"
                 placeholder="0"
                 onChange={(e) => {
                   setFormData({

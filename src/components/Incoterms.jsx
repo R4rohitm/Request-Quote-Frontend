@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 const Incoterms = ({ formData, setFormData }) => {
-  const [incoterms, setIncoterms] = useState(true);
   const [exw, setExw] = useState(false);
   const [fob, setFob] = useState(false);
   const [cfr, setCfr] = useState(false);
