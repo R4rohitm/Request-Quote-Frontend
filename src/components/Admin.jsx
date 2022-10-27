@@ -3,7 +3,9 @@ import "./AdminStyles.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Posts from "./Posts";
+import Accordion from "./Accordion";
 import Pagination from "./Pagination";
+
 
 const Admin = () => {
   const [rq, setRq] = useState([]);
@@ -129,10 +131,10 @@ const Admin = () => {
   };
 
   const handle_fcl = () => {
-    axios
-      .get(`https://intoglo-first-api.herokuapp.com/quote/fetchByMode/sea?transportation_by=FCL`)
-      .then(({ res }) => {
-        setRq(res);
+      axios
+      .get(`https://intoglo-first-api.herokuapp.com/quote/fetchByMode/FCL`)
+      .then(({ data }) => {
+        setRq(data);
       })
       .catch((error) => {
         if (error.response) {
@@ -216,7 +218,7 @@ const Admin = () => {
                   </li>
                   <li>
                     <a
-                      href="s"
+                      href="/admin"
                       class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                     >
                       <svg
@@ -261,7 +263,7 @@ const Admin = () => {
                 onClick={handle_all}
                 class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
               >
-                ALL
+                RESET
               </button>
               <button
                 type="button"
@@ -272,7 +274,7 @@ const Admin = () => {
               </button>
               <button
                 type="button"
-                
+                onClick={handle_fcl}
                 class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
               >
                 FCL
@@ -319,7 +321,15 @@ const Admin = () => {
                 <div>Phone Number</div>
               </div>
               {rq.length !== 0 ? (
-                <Posts posts={currentPosts} />
+                <>
+                {currentPosts && currentPosts.map((e)=>{
+                  return(
+                    <>
+                     <Accordion e={e}/>
+                    </>
+                    )
+                })}
+                </>
               ) : (
                 <>
                   <button class="accordion_nores">
