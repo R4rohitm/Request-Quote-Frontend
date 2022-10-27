@@ -436,7 +436,10 @@ const RequestQuote2 = () => {
                 />
               </div>
               {cities1 ? (
-                <div id="locfrom" class="border absolute shadow-lg w-full mt-[72px] max-h-40 z-30 bg-white overflow-hidden rounded-md">
+                <div
+                  id="locfrom"
+                  class="border absolute shadow-lg w-full mt-[72px] max-h-40 z-30 bg-white overflow-hidden rounded-md"
+                >
                   {cities1.map((city) => {
                     return (
                       <div
@@ -476,7 +479,10 @@ const RequestQuote2 = () => {
                 />
               </div>
               {cities2 ? (
-                <div id="locto" class="border absolute w-full mt-[72px] max-h-40 z-30 bg-white overflow-hidden rounded-md">
+                <div
+                  id="locto"
+                  class="border absolute w-full mt-[72px] max-h-40 z-30 bg-white overflow-hidden rounded-md"
+                >
                   {cities2.map((city) => {
                     return (
                       <div
@@ -617,15 +623,12 @@ const RequestQuote2 = () => {
             </div>
             <label
               for="remember"
-              class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+              class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400 flex"
             >
               I agree with the{" "}
-              <a
-                href="rrr"
-                class="text-blue-600 hover:underline dark:text-blue-500"
-              >
+              <p class="text-blue-600 hover:underline dark:text-blue-500 ml-1">
                 terms and conditions
-              </a>
+              </p>
               .
             </label>
           </div>
