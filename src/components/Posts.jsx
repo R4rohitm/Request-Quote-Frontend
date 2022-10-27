@@ -185,8 +185,9 @@ const Posts = ({ posts }) => {
                   ) : (
                     <></>
                   )}
-                  {!e.by_units && (e.transportation_by === "LCL" ||
-                  e.transportation_by === "SC")? (
+                  {!e.by_units &&
+                  (e.transportation_by === "LCL" ||
+                    e.transportation_by === "SC") ? (
                     <>
                       <tr>
                         <td>Weight</td>
@@ -219,30 +220,46 @@ const Posts = ({ posts }) => {
                   </tr>
                   {e.associated_services ? (
                     <>
-                      {e.associated_services.inspection ?<>
-                      <tr>
-                      <td>Associated Services</td>
-                      <td>Inspection</td>
-                      </tr>
-                      </>:<></>}
-                      {e.associated_services.insurance ?<>
-                      <tr>
-                      <td>Associated Services</td>
-                      <td>Insurance</td>
-                      </tr>
-                      </>:<></>}
-                      {e.associated_services.certification ?<>
-                      <tr>
-                      <td>Associated Services</td>
-                      <td>Certification</td>
-                      </tr>
-                      </>:<></>}
-                      {e.associated_services.customs_clearance ?<>
-                      <tr>
-                      <td>Associated Services</td>
-                      <td>Customs Clearance</td>
-                      </tr>
-                      </>:<></>}
+                      {e.associated_services.inspection ? (
+                        <>
+                          <tr>
+                            <td>Associated Services</td>
+                            <td>Inspection</td>
+                          </tr>
+                        </>
+                      ) : (
+                        <></>
+                      )}
+                      {e.associated_services.insurance ? (
+                        <>
+                          <tr>
+                            <td>Associated Services</td>
+                            <td>Insurance</td>
+                          </tr>
+                        </>
+                      ) : (
+                        <></>
+                      )}
+                      {e.associated_services.certification ? (
+                        <>
+                          <tr>
+                            <td>Associated Services</td>
+                            <td>Certification</td>
+                          </tr>
+                        </>
+                      ) : (
+                        <></>
+                      )}
+                      {e.associated_services.customs_clearance ? (
+                        <>
+                          <tr>
+                            <td>Associated Services</td>
+                            <td>Customs Clearance</td>
+                          </tr>
+                        </>
+                      ) : (
+                        <></>
+                      )}
                     </>
                   ) : (
                     <></>

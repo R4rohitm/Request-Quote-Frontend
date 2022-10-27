@@ -427,7 +427,7 @@ const RequestQuote2 = () => {
                   type="text"
                   id="location_from"
                   autoComplete="off"
-                  onChange={(e) => {
+                  onKeyUp={(e) => {
                     setCityQuery1(e.target.value);
                   }}
                   class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
@@ -444,8 +444,8 @@ const RequestQuote2 = () => {
                     return (
                       <div
                         onClick={() => {
-                          handleClickCity1(city.name, city.country);
                           setCityQuery1("");
+                          handleClickCity1(city.name, city.country);
                           setCities1(null);
                         }}
                         class="text-sm cursor-pointer text-gray-900 font-medium px-6 py-4 whitespace-nowrap"
@@ -472,7 +472,7 @@ const RequestQuote2 = () => {
                   type="text"
                   id="location_to"
                   autoComplete="off"
-                  onChange={(e) => setCityQuery2(e.target.value)}
+                  onKeyUp={(e) => setCityQuery2(e.target.value)}
                   class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
                   placeholder="City, Port"
                   required
@@ -487,8 +487,8 @@ const RequestQuote2 = () => {
                     return (
                       <div
                         onClick={() => {
-                          handleClickCity2(city.name, city.country);
                           setCityQuery2("");
+                          handleClickCity2(city.name, city.country);
                           setCities2(null);
                         }}
                         class="text-sm cursor-pointer text-gray-900 font-medium px-6 py-4 whitespace-nowrap"
