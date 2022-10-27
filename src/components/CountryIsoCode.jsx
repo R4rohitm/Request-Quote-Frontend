@@ -9,7 +9,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 const CountryIsoCode = () => {
-  const [selectedCountry, setSelectedCountry] = useState(Data[0]);
+  const [selectedCountry, setSelectedCountry] = useState(Data[98]);
   return (
     <Listbox
       id="country_code"
@@ -17,27 +17,20 @@ const CountryIsoCode = () => {
       onChange={(e) => {
         setSelectedCountry(e);
       }}
-      class="w-[30%]"
     >
       {({ open }) => (
         <>
-          <div className="relative">
-            <Listbox.Button className="relative w-full text-sm cursor-pointer bg-white py-2 pl-3 pr-2 text-left focus:outline-none sm:text-sm">
+          <div className="relative w-1/4">
+            <Listbox.Button className="relative w-[full] text-sm cursor-pointer bg-white py-2 pl-3 pr-2 text-left  focus:outline-none sm:text-sm">
               <span className="flex items-center">
                 <img
                   src={selectedCountry.flag}
                   alt=""
-                  className="h-6 w-6 flex-shrink-0 rounded-full"
+                  className="h-5 w-5 flex-shrink-0"
                 />
                 <span className="ml-3 block truncate">
-                  {selectedCountry.name}
+                  {selectedCountry.dialCode}
                 </span>
-              </span>
-              <span className="pointer-events-none absolute inset-y-0 -right-8 ml-3 flex items-center pr-2">
-                <ChevronUpDownIcon
-                  className="h-5 w-5 text-gray-400"
-                  aria-hidden="true"
-                />
               </span>
             </Listbox.Button>
 
@@ -50,7 +43,7 @@ const CountryIsoCode = () => {
             >
               <Listbox.Options
                 id="countryscollbar"
-                className="countryscollbar absolute z-10 mt-1 max-h-40 w-[150%] overflow-auto rounded-md bg-white py-1 -ml-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+                className="countryscollbar absolute z-10 mt-1 max-h-40 w-[220%] overflow-auto rounded-md bg-white py-1 -ml-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
               >
                 {Data.map((country) => (
                   <Listbox.Option
@@ -69,7 +62,7 @@ const CountryIsoCode = () => {
                           <img
                             src={country.flag}
                             alt=""
-                            className="h-6 w-6 flex-shrink-0 rounded-full"
+                            className="h-6 w-6 flex-shrink-0"
                           />
                           <span
                             className={classNames(
@@ -78,6 +71,14 @@ const CountryIsoCode = () => {
                             )}
                           >
                             {country.isoCode}
+                          </span>
+                          <span
+                            className={classNames(
+                              selected ? "font-semibold" : "font-normal",
+                              "ml-3 block truncate pr-4"
+                            )}
+                          >
+                            {country.dialCode}
                           </span>
                         </div>
 
@@ -97,6 +98,12 @@ const CountryIsoCode = () => {
                 ))}
               </Listbox.Options>
             </Transition>
+            <span className="pointer-events-none absolute inset-y-0 -right-3 ml-3 flex items-center">
+              <ChevronUpDownIcon
+                className="h-5 w-5 text-gray-400 ml-1"
+                aria-hidden="true"
+              />
+            </span>
           </div>
         </>
       )}
