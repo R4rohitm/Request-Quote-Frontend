@@ -436,7 +436,7 @@ const RequestQuote2 = () => {
                 />
               </div>
               {cities1 ? (
-                <div class="border absolute shadow-lg w-full mt-[72px] max-h-40 z-30 bg-white overflow-hidden rounded-md">
+                <div id="locfrom" class="border absolute shadow-lg w-full mt-[72px] max-h-40 z-30 bg-white overflow-hidden rounded-md">
                   {cities1.map((city) => {
                     return (
                       <div
@@ -476,7 +476,7 @@ const RequestQuote2 = () => {
                 />
               </div>
               {cities2 ? (
-                <div class="border absolute w-full mt-[72px] max-h-40 z-30 bg-white overflow-hidden rounded-md">
+                <div id="locto" class="border absolute w-full mt-[72px] max-h-40 z-30 bg-white overflow-hidden rounded-md">
                   {cities2.map((city) => {
                     return (
                       <div
@@ -701,6 +701,7 @@ const RequestQuote2 = () => {
                     Close
                   </button>
                   <button
+                    class="newrq"
                     className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => {

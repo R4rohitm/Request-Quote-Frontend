@@ -183,6 +183,7 @@ export default function Sea({ setFormData, formData, handleChange }) {
       {selected.id === 1 ? (
         <div class="grid gap-6 mb-8 md:grid-cols-2">
           <Listbox
+            id="container_type"
             value={selectedContainer}
             onChange={(e) => {
               setSelectedContainer(e);
@@ -373,6 +374,7 @@ export default function Sea({ setFormData, formData, handleChange }) {
         <>
           <div class="grid gap-6 mb-8 md:grid-cols-2">
             <Listbox
+              id="ship_type"
               value={selectedShipType}
               onChange={(e) => {
                 setSelectedShipType(e);
