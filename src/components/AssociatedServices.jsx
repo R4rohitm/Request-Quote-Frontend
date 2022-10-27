@@ -148,8 +148,8 @@ const AssociatedServices = ({ formData, setFormData }) => {
         onMouseLeave={() => setCustomsInfo(false)}
         class={
           customs
-            ? "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto  border-[#4F46E5]"
-            : "relative inline-flex items-center justify-between gap-4 mb-2 px-6 py-2 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
+            ? "relative inline-flex items-center justify-between gap-4 mb-2 px-3 py-2 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto  border-[#4F46E5]"
+            : "relative inline-flex items-center justify-between gap-4 mb-2 px-3 py-2 text-black hover:shadow-2xl shadow-md border border-transparent rounded-full md:w-auto hover:border-[#4F46E5]"
         }
       >
         <input
