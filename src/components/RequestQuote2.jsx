@@ -123,7 +123,7 @@ const RequestQuote2 = () => {
   const getProductDetails = async (hsQuery) => {
     try {
       let response = await fetch(
-        `https://intoglo-first-api.herokuapp.com/search/FindHSCode?search=${hsQuery}`
+        `https://intoglo-first-api.herokuapp.com/search/Findhs?search=${hsQuery}`
       );
       let data = await response.json();
       console.log(data);
