@@ -3,12 +3,11 @@ import Data from "../utils/countries.json";
 import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
-console.log(Data);
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-const CountryIsoCode = () => {
+const CountryIsoCode = ({ formData, setFormData }) => {
   const [selectedCountry, setSelectedCountry] = useState(Data[98]);
   return (
     <Listbox
@@ -16,6 +15,15 @@ const CountryIsoCode = () => {
       value={selectedCountry}
       onChange={(e) => {
         setSelectedCountry(e);
+        setFormData({
+          ...formData,
+          phone: {
+            ...formData.phone,
+            dialcode: e.dialCode,
+            country: e.name,
+            isocode: e.isoCode,
+          },
+        });
       }}
     >
       {({ open }) => (
@@ -47,7 +55,7 @@ const CountryIsoCode = () => {
               >
                 {Data.map((country) => (
                   <Listbox.Option
-                    key={country.dialCode}
+                    key={country.isoCode}
                     className={({ active }) =>
                       classNames(
                         active ? "text-white bg-indigo-600" : "text-gray-900",

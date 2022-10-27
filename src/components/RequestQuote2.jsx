@@ -43,6 +43,7 @@ const RequestQuote2 = () => {
     transportation_by: "FCL",
     dimensions: [],
     product_details: {},
+    phone: { dialcode: "+91", country: "India", isocode: "IN" },
   });
   console.log(formData);
 
@@ -587,11 +588,20 @@ const RequestQuote2 = () => {
                 Phone <span class="text-[red]">*</span>
               </label>
               <div class="flex justify-between items-center bg-white rounded-sm border border-gray-300 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] w-full">
-                <CountryIsoCode class="w-4/12" />
+                <CountryIsoCode
+                  class="w-4/12"
+                  formData={formData}
+                  setFormData={setFormData}
+                />
                 <input
                   type="number"
                   name="phone"
-                  onChange={(e) => handleChange(e)}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      phone: { ...formData.phone, number: e.target.value },
+                    })
+                  }
                   class="bg-white text-gray-900 text-sm block w-8/12 p-2.5 focus:outline-none "
                   placeholder="123-456-7890"
                   required
