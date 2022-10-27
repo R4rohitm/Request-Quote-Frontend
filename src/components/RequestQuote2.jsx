@@ -9,6 +9,7 @@ import AdditionalProductInfo from "./AdditionalProductInfo";
 // import "react-toastify/dist/ReactToastify.css";
 import AssociatedServices from "./AssociatedServices";
 import Incoterms from "./Incoterms";
+import CountryIsoCode from "./CountryIsoCode";
 
 // today's date function
 
@@ -42,6 +43,7 @@ const RequestQuote2 = () => {
     transportation_by: "FCL",
     dimensions: [],
     product_details: {},
+    phone: { dialcode: "+91", country: "India", isocode: "IN" },
   });
   console.log(formData);
 
@@ -427,7 +429,7 @@ const RequestQuote2 = () => {
                   type="text"
                   id="location_from"
                   autoComplete="off"
-                  onChange={(e) => {
+                  onKeyUp={(e) => {
                     setCityQuery1(e.target.value);
                   }}
                   class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
@@ -444,8 +446,8 @@ const RequestQuote2 = () => {
                     return (
                       <div
                         onClick={() => {
-                          handleClickCity1(city.name, city.country);
                           setCityQuery1("");
+                          handleClickCity1(city.name, city.country);
                           setCities1(null);
                         }}
                         class="text-sm cursor-pointer text-gray-900 font-medium px-6 py-4 whitespace-nowrap"
@@ -472,7 +474,7 @@ const RequestQuote2 = () => {
                   type="text"
                   id="location_to"
                   autoComplete="off"
-                  onChange={(e) => setCityQuery2(e.target.value)}
+                  onKeyUp={(e) => setCityQuery2(e.target.value)}
                   class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
                   placeholder="City, Port"
                   required
@@ -487,8 +489,8 @@ const RequestQuote2 = () => {
                     return (
                       <div
                         onClick={() => {
-                          handleClickCity2(city.name, city.country);
                           setCityQuery2("");
+                          handleClickCity2(city.name, city.country);
                           setCities2(null);
                         }}
                         class="text-sm cursor-pointer text-gray-900 font-medium px-6 py-4 whitespace-nowrap"
@@ -585,14 +587,26 @@ const RequestQuote2 = () => {
               >
                 Phone <span class="text-[red]">*</span>
               </label>
-              <input
-                type="number"
-                name="phone"
-                onChange={(e) => handleChange(e)}
-                class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
-                placeholder="123-456-7890"
-                required
-              />
+              <div class="flex justify-between items-center bg-white rounded-sm border border-gray-300 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] w-full">
+                <CountryIsoCode
+                  class="w-4/12"
+                  formData={formData}
+                  setFormData={setFormData}
+                />
+                <input
+                  type="number"
+                  name="phone"
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      phone: { ...formData.phone, number: e.target.value },
+                    })
+                  }
+                  class="bg-white text-gray-900 text-sm block w-8/12 p-2.5 focus:outline-none "
+                  placeholder="123-456-7890"
+                  required
+                />
+              </div>
             </div>
             <div>
               <label

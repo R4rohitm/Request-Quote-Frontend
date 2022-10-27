@@ -6,7 +6,6 @@ const Posts = ({ posts }) => {
   
   return (
     <>
-     
      {posts && posts.map((e)=>{
         return(
           <>
