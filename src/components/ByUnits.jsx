@@ -1,27 +1,35 @@
 import React, { useState } from "react";
 
 const ByUnits = ({ setFormData, formData }) => {
-  const [noOfComponents, setNoOfComponents] = useState([1]);
-  const [dimensionsArray, setDimensionsArray] = useState([]);
-  const [dimensions, setDimensions] = useState({});
+  // const [noOfComponents, setNoOfComponents] = useState([1]);
+  const [dimensionsArray, setDimensionsArray] = useState([
+    { id: 1, width: "" },
+  ]);
+
+  console.log(dimensionsArray);
 
   const handleRemoveComponent = (index) => {
-    const list = formData.dimensions;
+    const list = [...dimensionsArray];
     list.splice(index, 1);
     setDimensionsArray(list);
     setFormData({
       ...formData,
       dimensions: [...list],
     });
-    const remove = [...noOfComponents];
-    remove.splice(index, 1);
-    setNoOfComponents(remove);
   };
+
+  const handleChangeObjs = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...dimensionsArray];
+    list[index][name] = value;
+    setDimensionsArray(list);
+  };
+
   return (
     <div>
-      {noOfComponents.map((component, index) => {
+      {dimensionsArray.map((component, index) => {
         return (
-          <div key={component} class="grid gap-6 mb-6 md:grid-cols-2">
+          <div key={component.id} class="grid gap-6 mb-6 md:grid-cols-2">
             <div>
               <label
                 for="dimensions"
@@ -34,7 +42,8 @@ const ByUnits = ({ setFormData, formData }) => {
                   type="text"
                   name="width"
                   onChange={(e) => {
-                    setDimensions({ ...dimensions, width: e.target.value });
+                    // setDimensions({ ...dimensions, width: e.target.value });
+                    handleChangeObjs(e, index);
                   }}
                   class="  text-gray-900 text-md outline-none block w-[25%] p-[9px] placeholder:text-center indent-2"
                   placeholder="width"
@@ -44,7 +53,8 @@ const ByUnits = ({ setFormData, formData }) => {
                   type="text"
                   name="height"
                   onChange={(e) => {
-                    setDimensions({ ...dimensions, height: e.target.value });
+                    // setDimensions({ ...dimensions, height: e.target.value });
+                    handleChangeObjs(e, index);
                   }}
                   class=" text-gray-900 text-md outline-none block w-[25%] p-[9px] placeholder:text-center indent-2"
                   placeholder="height"
@@ -54,7 +64,8 @@ const ByUnits = ({ setFormData, formData }) => {
                   type="text"
                   name="length"
                   onChange={(e) => {
-                    setDimensions({ ...dimensions, length: e.target.value });
+                    // setDimensions({ ...dimensions, length: e.target.value });
+                    handleChangeObjs(e, index);
                   }}
                   class=" text-gray-900 text-md outline-none block w-[25%] p-[9px]  placeholder:text-center indent-2"
                   placeholder="length"
@@ -76,7 +87,8 @@ const ByUnits = ({ setFormData, formData }) => {
                   type="text"
                   name="quantity"
                   onChange={(e) => {
-                    setDimensions({ ...dimensions, quantity: e.target.value });
+                    // setDimensions({ ...dimensions, quantity: e.target.value });
+                    handleChangeObjs(e, index);
                   }}
                   class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
                   placeholder="Quantity"
@@ -94,22 +106,20 @@ const ByUnits = ({ setFormData, formData }) => {
                     type="text"
                     name="gross_weight"
                     onKeyUp={(e) => {
-                      setDimensions({
-                        ...dimensions,
-                        gross_weight: e.target.value,
-                      });
-                      setDimensionsArray((prev) => [
-                        ...prev,
-                        { ...dimensions, gross_weight: e.target.value },
-                      ]);
+                      // setDimensions({
+                      //   ...dimensions,
+                      //   gross_weight: e.target.value,
+                      // });
+                      handleChangeObjs(e, index);
+                      // setDimensionsArray((prev) => [
+                      //   ...prev,
+                      //   { ...dimensions, gross_weight: e.target.value },
+                      // ]);
                     }}
                     onBlur={() => {
                       setFormData({
                         ...formData,
-                        dimensions: [
-                          ...formData.dimensions,
-                          dimensionsArray[dimensionsArray.length - 1],
-                        ],
+                        dimensions: dimensionsArray,
                       });
                     }}
                     class="bg-white text-gray-900 text-sm outline-none block w-[80%] p-2.5"
@@ -120,7 +130,7 @@ const ByUnits = ({ setFormData, formData }) => {
                   </div>
                 </div>
               </div>
-              {noOfComponents.length > 1 && (
+              {dimensionsArray.length > 1 && (
                 <button
                   type="button"
                   onClick={() => handleRemoveComponent(index)}
@@ -143,11 +153,15 @@ const ByUnits = ({ setFormData, formData }) => {
                 </button>
               )}
             </div>
-            {noOfComponents.length - 1 === index && (
+            {dimensionsArray.length - 1 === index && (
               <button
                 type="button"
                 onClick={() => {
-                  setNoOfComponents((prev) => [...prev, noOfComponents + 1]);
+                  // setNoOfComponents((prev) => [...prev, noOfComponents + 1]);
+                  setDimensionsArray((prev) => [
+                    ...prev,
+                    { id: dimensionsArray.length + 1, width: "" },
+                  ]);
                 }}
                 class="text-[#4F46E5] bg-white hover:bg-[#4F46E5] hover:text-white focus:ring-4 focus:outline-none font-medium text-sm w-16 rounded-lg sm:w-16 px-2 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
