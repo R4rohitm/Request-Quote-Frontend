@@ -8,7 +8,7 @@ const Incoterms = ({ formData, setFormData }) => {
   const [dap, setDap] = useState(false);
   const [ddp, setDdp] = useState(false);
   return (
-    <div class="grid gap-2 mb-6 grid-cols-3 sm:grid-cols-3 sm:w-[75%] md:grid-cols-4 md:w-[80%] lg:grid-cols-6 xl:grid-cols-6 lg:w-[120%] xl:w-full">
+    <div class="grid gap-2 mb-6 grid-cols-3 sm:grid-cols-3 sm:w-[75%] md:grid-cols-4 md:w-[80%] lg:grid-cols-6 xl:grid-cols-6 lg:w-full xl:w-full">
       <button
         type="button"
         onClick={() => {

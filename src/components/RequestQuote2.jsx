@@ -202,7 +202,7 @@ const RequestQuote2 = () => {
     getLocation2(cityQuery2);
   }, [cityQuery2]);
   return (
-    <div class="relative my-12 mx-[3%] lg-mx-[15%] md:mx-[10%] sm:mx-[5%] py-6 px-8 border bg-white shadow-md">
+    <div class="relative my-12 mx-[3%] lg-mx-[15%] md:mx-[5%] sm:mx-[5%] py-6 px-8 border bg-white shadow-md">
       <div class="mb-4 text-xl font-bold md:text-3xl lg:text-4xl flex flex-wrap items-center gap-3">
         <span class="text-transparent bg-clip-text bg-gradient-to-r to-[#4F46E5] from-sky-400">
           Request a Quote
@@ -587,7 +587,7 @@ const RequestQuote2 = () => {
               >
                 Phone <span class="text-[red]">*</span>
               </label>
-              <div class="flex justify-between items-center bg-white rounded-sm border border-gray-300 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] w-full">
+              <div class="flex justify-between gap:2 items-center bg-white rounded-sm border border-gray-300 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] w-full">
                 <CountryIsoCode
                   class="w-4/12"
                   formData={formData}

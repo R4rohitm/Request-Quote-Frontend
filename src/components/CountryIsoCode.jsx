@@ -29,14 +29,14 @@ const CountryIsoCode = ({ formData, setFormData }) => {
       {({ open }) => (
         <>
           <div className="relative w-1/4">
-            <Listbox.Button className="relative w-[full] text-sm cursor-pointer bg-white py-2 pl-3 pr-2 text-left  focus:outline-none sm:text-sm">
+            <Listbox.Button className="relative w-full text-sm cursor-pointer bg-white py-2 pl-3 pr-2 text-left  focus:outline-none sm:text-sm">
               <span className="flex items-center">
                 <img
                   src={selectedCountry.flag}
                   alt=""
-                  className="h-5 w-5 flex-shrink-0"
+                  className="h-3 w-3 flex-shrink-0 sm:h-5 sm:w-5 md:w-4 md:h-4 lg:w-5 lg:h-5"
                 />
-                <span className="ml-3 block truncate">
+                <span className="ml-3 block truncate font-light max-[333]:text-[8px] text-[12px] sm:text-sm md:text-[10px] lg:text-sm">
                   {selectedCountry.dialCode}
                 </span>
               </span>
@@ -51,7 +51,7 @@ const CountryIsoCode = ({ formData, setFormData }) => {
             >
               <Listbox.Options
                 id="countryscollbar"
-                className="countryscollbar absolute z-10 mt-1 max-h-40 w-[220%] overflow-auto rounded-md bg-white py-1 -ml-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+                className="countryscollbar absolute z-10 mt-1 max-h-40 w-[280%] overflow-auto rounded-md bg-white py-1 -ml-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
               >
                 {Data.map((country) => (
                   <Listbox.Option
@@ -75,7 +75,7 @@ const CountryIsoCode = ({ formData, setFormData }) => {
                           <span
                             className={classNames(
                               selected ? "font-semibold" : "font-normal",
-                              "ml-3 block truncate"
+                              "ml-3 block truncate font-light max-[333]:text-[8px] text-[12px] sm:text-sm md:text-[10px] lg:text-sm"
                             )}
                           >
                             {country.isoCode}
@@ -83,7 +83,7 @@ const CountryIsoCode = ({ formData, setFormData }) => {
                           <span
                             className={classNames(
                               selected ? "font-semibold" : "font-normal",
-                              "ml-3 block truncate pr-4"
+                              "ml-3 block truncate pr-2 max-[333]:text-[8px] text-[12px] sm:text-sm md:text-[10px] lg:text-sm"
                             )}
                           >
                             {country.dialCode}
@@ -94,10 +94,13 @@ const CountryIsoCode = ({ formData, setFormData }) => {
                           <span
                             className={classNames(
                               active ? "text-white" : "text-indigo-600",
-                              "absolute inset-y-0 right-0 flex items-center pr-4"
+                              "absolute inset-y-0 right-0 flex items-center pr-2"
                             )}
                           >
-                            <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                            <CheckIcon
+                              className="h-3 w-3 sm:w-5 sm:h-5 md:w-4 md:h-4 lg:w-5 lg:h-5"
+                              aria-hidden="true"
+                            />
                           </span>
                         ) : null}
                       </>
@@ -108,7 +111,7 @@ const CountryIsoCode = ({ formData, setFormData }) => {
             </Transition>
             <span className="pointer-events-none absolute inset-y-0 -right-3 ml-3 flex items-center">
               <ChevronUpDownIcon
-                className="h-5 w-5 text-gray-400 ml-1"
+                className="h-3 w-3 sm:w-5 sm:h-5 md:w-4 md:h-4 lg:w-5 lg:h-5 text-gray-400 ml-1 hidden md:block"
                 aria-hidden="true"
               />
             </span>
