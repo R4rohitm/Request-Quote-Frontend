@@ -70,7 +70,7 @@ const CountryIsoCode = ({ formData, setFormData }) => {
                           <img
                             src={country.flag}
                             alt=""
-                            className="h-6 w-6 flex-shrink-0"
+                            className="h-4 w-4 flex-shrink-0"
                           />
                           <span
                             className={classNames(
