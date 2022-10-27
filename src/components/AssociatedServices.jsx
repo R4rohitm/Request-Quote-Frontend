@@ -41,7 +41,7 @@ const AssociatedServices = ({ formData, setFormData }) => {
         />
         <div class="flex gap-1 justify-center items-center">
           <img src="https://imgur.com/YlP9jAY.png" alt="" class="w-5 h-5" />
-          <p class="font-sm font-sans font-light">Insurance</p>
+          <p class="font-xs md:font-sm font-sans font-light">Insurance</p>
         </div>
         {insuranceInfo ? (
           <div class=" absolute bottom-14 -left-20 max-w-lg text-sm md:w-[350px] rounded-lg shadow-lg p-4 bg-[#4F46E5]">
@@ -81,7 +81,9 @@ const AssociatedServices = ({ formData, setFormData }) => {
         />
         <div class="flex gap-1 justify-center items-center">
           <img src="https://imgur.com/9QHXC2E.png" alt="" class="w-5 h-5" />
-          <p class="font-sm font-sans font-light">Inspection Services</p>
+          <p class="font-xs md:font-sm font-sans font-light">
+            Inspection Services
+          </p>
         </div>
         {inspectionInfo ? (
           <div class=" absolute bottom-14 -left-12 max-w-lg text-sm md:w-[350px] rounded-lg shadow-lg p-4 bg-[#4F46E5]">
@@ -120,7 +122,7 @@ const AssociatedServices = ({ formData, setFormData }) => {
         />
         <div class="flex gap-1 justify-center items-center">
           <img src="https://imgur.com/LJfHZAe.png" alt="" class="w-5 h-5" />
-          <p class="font-sm font-sans font-light">Certification</p>
+          <p class="font-xs md:font-sm font-sans font-light">Certification</p>
         </div>
         {certificationInfo ? (
           <div class=" absolute bottom-14 -left-16 max-w-lg text-sm md:w-[350px] rounded-lg shadow-lg p-4 bg-[#4F46E5]">
@@ -161,7 +163,9 @@ const AssociatedServices = ({ formData, setFormData }) => {
         />
         <div class="flex gap-1 justify-center items-center">
           <img src="https://imgur.com/0DXcRm5.png" alt="" class="w-5 h-5" />
-          <p class="font-sm font-sans font-light">Customs Clearance</p>
+          <p class="font-xs md:font-sm font-sans font-light">
+            Customs Clearance
+          </p>
         </div>
         {customsInfo ? (
           <div class=" absolute bottom-14 -left-12 max-w-lg text-sm md:w-[350px] rounded-lg shadow-lg p-4 bg-[#4F46E5]">

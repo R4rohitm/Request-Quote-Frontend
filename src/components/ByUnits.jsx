@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 
 const ByUnits = ({ setFormData, formData }) => {
-  // const [noOfComponents, setNoOfComponents] = useState([1]);
   const [dimensionsArray, setDimensionsArray] = useState([
     { id: 1, width: "" },
   ]);
-
-  console.log(dimensionsArray);
 
   const handleRemoveComponent = (index) => {
     const list = [...dimensionsArray];
