@@ -89,31 +89,36 @@ const ByUnits = ({ setFormData, formData }) => {
                 >
                   Gross Weight
                 </label>
-                <input
-                  type="text"
-                  name="gross_weight"
-                  onKeyUp={(e) => {
-                    setDimensions({
-                      ...dimensions,
-                      gross_weight: e.target.value,
-                    });
-                    setDimensionsArray((prev) => [
-                      ...prev,
-                      { ...dimensions, gross_weight: e.target.value },
-                    ]);
-                  }}
-                  onBlur={() => {
-                    setFormData({
-                      ...formData,
-                      dimensions: [
-                        ...formData.dimensions,
-                        dimensionsArray[dimensionsArray.length - 1],
-                      ],
-                    });
-                  }}
-                  class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
-                  placeholder="Gross Weight"
-                />
+                <div class="flex items-center bg-white rounded-sm border border-gray-300 focus:outline-[#4F46E5] mb-2 hover:border-[#4F46E5]  w-full">
+                  <input
+                    type="text"
+                    name="gross_weight"
+                    onKeyUp={(e) => {
+                      setDimensions({
+                        ...dimensions,
+                        gross_weight: e.target.value,
+                      });
+                      setDimensionsArray((prev) => [
+                        ...prev,
+                        { ...dimensions, gross_weight: e.target.value },
+                      ]);
+                    }}
+                    onBlur={() => {
+                      setFormData({
+                        ...formData,
+                        dimensions: [
+                          ...formData.dimensions,
+                          dimensionsArray[dimensionsArray.length - 1],
+                        ],
+                      });
+                    }}
+                    class="bg-white text-gray-900 text-sm outline-none block w-[80%] p-2.5"
+                    placeholder="Gross Weight"
+                  />
+                  <div class="w-[20%] border-l-2 border-gray-300 text-gray-500 text-sm flex justify-center items-center">
+                    kg
+                  </div>
+                </div>
               </div>
               {noOfComponents.length > 1 && (
                 <button
