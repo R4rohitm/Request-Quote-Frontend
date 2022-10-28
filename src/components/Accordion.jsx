@@ -129,7 +129,7 @@ const Accordion = ({ e }) => {
                     <td>{e.transportation_by}</td>
                   </tr>
                   {e.transportation_by === "FCL" ||
-                  e.transportation_by === "ULD" ? (
+                  e.transportation_by === "ULDC" ? (
                     <>
                       <tr>
                         <td>Container Type</td>
