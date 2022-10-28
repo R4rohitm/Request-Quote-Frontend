@@ -706,7 +706,7 @@ const RequestQuote2 = () => {
                     type="button"
                     onClick={() => {
                       setShowModal(false);
-                      navigate("/requestquote");
+                      window.location.reload();
                     }}
                   >
                     Close
