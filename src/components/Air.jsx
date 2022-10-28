@@ -260,12 +260,12 @@ export default function Air({ setFormData, formData, handleChange }) {
               <div class="flex flex-col">
                 <label
                   for="last_name"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  class="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-300"
                 >
                   Container Type<span class="text-[red]">*</span>
                 </label>
                 <div className="relative mt-1">
-                  <Listbox.Button className="relative w-full cursor-default rounded-md border hover:border-[#4F46E5] border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
+                  <Listbox.Button className="relative w-full cursor-default rounded-md border hover:border-[#4F46E5] border-gray-300 bg-white py-2.5 pl-3 pr-10 text-left shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
                     <span className="flex items-center">
                       <span className="ml-3 block truncate">
                         {selectedContainer?.container_type ? (
