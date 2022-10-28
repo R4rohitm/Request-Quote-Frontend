@@ -6,6 +6,7 @@ const Accordion = ({ e }) => {
   console.log(e);
 
   return (
+    <>
     <div className="accordion-item">
       <div className="accordion" onClick={() => setIsActive(!isActive)}>
         <div>
@@ -19,7 +20,7 @@ const Accordion = ({ e }) => {
                     {e.first_name}&nbsp;{e.last_name}
                   </div>
                   <div>{e.email}</div>
-                  <div>{e.phone}</div>
+                  <div>{e.phone.dialcode} {e.phone.number}</div>
                 </div>
         </div>
         <div></div>
@@ -42,14 +43,6 @@ const Accordion = ({ e }) => {
                   <tr>
                     <td>HS Code</td>
                     <td>{e.product_details.hscode}</td>
-                  </tr>
-                  <tr>
-                    <td>Category</td>
-                    <td>{e.product_details.category}</td>
-                  </tr>
-                  <tr>
-                    <td>Level</td>
-                    <td>{e.product_details.level}</td>
                   </tr>
                   {e.product_details.hazardous_cargo ? (
                     <>
@@ -257,10 +250,7 @@ const Accordion = ({ e }) => {
                     </>
                   ) : (
                     <>
-                      <tr>
-                        <td>Dimensions</td>
-                        <td>N/A</td>
-                      </tr>
+                      
                     </>
                   )}
                   {/* Contact info */}
@@ -277,12 +267,14 @@ const Accordion = ({ e }) => {
                     <td>{e.email}</td>
                   </tr>
                   <tr>
-                    <td>Phone</td>
-                    <td>{e.phone}</td>
+                    <td>Phone </td>
+                    <td><> {e.phone.dialcode} {e.phone.number} (country : {e.phone.country})</></td>
                   </tr>
                 </table>
         </div>}
     </div>
+    
+    </>
   );
 };
 
