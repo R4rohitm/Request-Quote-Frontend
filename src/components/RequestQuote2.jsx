@@ -144,9 +144,12 @@ const RequestQuote2 = () => {
   const getLocation1 = async (cityQuery1) => {
     console.log(cityQuery1);
     try {
+      // let response = await fetch(
+      //   `https://api.api-ninjas.com/v1/city?name=${cityQuery1}`,
+      //   { headers: { "X-Api-Key": "UczdRN7ix8nBYXWfPO030g==raOcRa79svjw6Ht2" } }
+      // );
       let response = await fetch(
-        `https://api.api-ninjas.com/v1/city?name=${cityQuery1}`,
-        { headers: { "X-Api-Key": "UczdRN7ix8nBYXWfPO030g==raOcRa79svjw6Ht2" } }
+        `https://intoglo-first-api.herokuapp.com/city/findcity?search=${cityQuery1}`
       );
       let data = await response.json();
       console.log(data);
@@ -160,9 +163,12 @@ const RequestQuote2 = () => {
 
   const getLocation2 = async (cityQuery2) => {
     try {
+      // let response = await fetch(
+      //   `https://api.api-ninjas.com/v1/city?name=${cityQuery2}`,
+      //   { headers: { "X-Api-Key": "UczdRN7ix8nBYXWfPO030g==raOcRa79svjw6Ht2" } }
+      // );
       let response = await fetch(
-        `https://api.api-ninjas.com/v1/city?name=${cityQuery2}`,
-        { headers: { "X-Api-Key": "UczdRN7ix8nBYXWfPO030g==raOcRa79svjw6Ht2" } }
+        `https://intoglo-first-api.herokuapp.com/city/findcity?search=${cityQuery2}`
       );
       let data = await response.json();
       setCities2(data);
@@ -187,7 +193,7 @@ const RequestQuote2 = () => {
   }, [hsQuery]);
 
   useEffect(() => {
-    if (cityQuery1.length === 0) {
+    if (cityQuery1.length <= 2) {
       setCities1(null);
       return;
     }
@@ -195,7 +201,7 @@ const RequestQuote2 = () => {
   }, [cityQuery1]);
 
   useEffect(() => {
-    if (cityQuery2.length === 0) {
+    if (cityQuery2.length <= 2) {
       setCities2(null);
       return;
     }
@@ -440,7 +446,7 @@ const RequestQuote2 = () => {
               {cities1 ? (
                 <div
                   id="locfrom"
-                  class="border absolute shadow-lg w-full mt-[72px] max-h-40 z-30 bg-white overflow-hidden rounded-md"
+                  class="border absolute shadow-lg w-full mt-[72px] max-h-40 z-30 bg-white overflow-y-scroll overflow-x-hidden rounded-md countryscollbar"
                 >
                   {cities1.map((city) => {
                     return (
@@ -450,7 +456,7 @@ const RequestQuote2 = () => {
                           handleClickCity1(city.name, city.country);
                           setCities1(null);
                         }}
-                        class="text-sm cursor-pointer text-gray-900 font-medium px-6 py-4 whitespace-nowrap"
+                        class="text-sm cursor-pointer text-gray-900 font-medium px-6 py-4 whitespace-nowrap hover:bg-[#4F46E5] hover:text-white"
                         key={city._id}
                       >
                         <h2>
@@ -483,7 +489,7 @@ const RequestQuote2 = () => {
               {cities2 ? (
                 <div
                   id="locto"
-                  class="border absolute w-full mt-[72px] max-h-40 z-30 bg-white overflow-hidden rounded-md"
+                  class="border absolute w-full mt-[72px] max-h-40 z-30 bg-white overflow-y-scroll overflow-x-hidden rounded-md countryscollbar"
                 >
                   {cities2.map((city) => {
                     return (
@@ -493,7 +499,7 @@ const RequestQuote2 = () => {
                           handleClickCity2(city.name, city.country);
                           setCities2(null);
                         }}
-                        class="text-sm cursor-pointer text-gray-900 font-medium px-6 py-4 whitespace-nowrap"
+                        class="text-sm cursor-pointer text-gray-900 font-medium px-6 py-4 whitespace-nowrap hover:bg-[#4F46E5] hover:text-white"
                         key={city._id}
                       >
                         <h2>
