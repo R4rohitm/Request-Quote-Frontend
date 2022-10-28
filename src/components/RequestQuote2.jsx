@@ -696,7 +696,7 @@ const RequestQuote2 = () => {
                 <div className="relative p-6 flex-auto">
                   <p className="my-4 text-slate-500 text-lg leading-relaxed">
                     Thank you for filling the request quote form , we will get
-                    back to you on the given email or phone number shortly.
+                    back to you shortly.
                   </p>
                 </div>
                 {/*footer*/}
