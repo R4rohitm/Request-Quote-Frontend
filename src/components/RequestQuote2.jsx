@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import { BeatLoader, BarLoader } from "react-spinners";
-import { useNavigate } from "react-router-dom";
 
 import Sea from "./Sea";
 import Air from "./Air";
@@ -46,8 +45,6 @@ const RequestQuote2 = () => {
     phone: { dialcode: "+91", country: "India", isocode: "IN" },
   });
   console.log(formData);
-
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -259,7 +256,16 @@ const RequestQuote2 = () => {
                   onChange={(e) => setHsQuery(e.target.value)}
                   onFocus={() => setClearProdInputIcon(true)}
                   onBlur={() => setClearProdInputIcon(false)}
+                  onInvalid={(F) => {
+                    F.target.setCustomValidity("Enter valid product details");
+                    F.target.style.border = "1px solid red";
+                  }}
+                  onInput={(F) => {
+                    F.target.setCustomValidity("");
+                    F.target.style.border = "none";
+                  }}
                 />
+
                 {!!product_details &&
                 !!product_details.value &&
                 product_details.value.length >= 2 ? (
@@ -441,6 +447,14 @@ const RequestQuote2 = () => {
                   class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
                   placeholder="City, Port"
                   required
+                  onInvalid={(F) => {
+                    F.target.setCustomValidity("Enter valid location");
+                    F.target.style.border = "1px solid red";
+                  }}
+                  onInput={(F) => {
+                    F.target.setCustomValidity("");
+                    F.target.style.border = "none";
+                  }}
                 />
               </div>
               {cities1 ? (
@@ -484,6 +498,14 @@ const RequestQuote2 = () => {
                   class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
                   placeholder="City, Port"
                   required
+                  onInvalid={(F) => {
+                    F.target.setCustomValidity("Enter valid location");
+                    F.target.style.border = "1px solid red";
+                  }}
+                  onInput={(F) => {
+                    F.target.setCustomValidity("");
+                    F.target.style.border = "none";
+                  }}
                 />
               </div>
               {cities2 ? (
@@ -528,6 +550,14 @@ const RequestQuote2 = () => {
                 class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
                 placeholder="Select"
                 required
+                onInvalid={(F) => {
+                  F.target.setCustomValidity("Enter valid date");
+                  F.target.style.border = "1px solid red";
+                }}
+                onInput={(F) => {
+                  F.target.setCustomValidity("");
+                  F.target.style.border = "none";
+                }}
               />
             </div>
           </div>
@@ -565,6 +595,14 @@ const RequestQuote2 = () => {
                 class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
                 placeholder="First Name"
                 required
+                onInvalid={(F) => {
+                  F.target.setCustomValidity("Enter your first name.");
+                  F.target.style.border = "1px solid red";
+                }}
+                onInput={(F) => {
+                  F.target.setCustomValidity("");
+                  F.target.style.border = "none";
+                }}
               />
             </div>
             <div>
@@ -581,6 +619,14 @@ const RequestQuote2 = () => {
                 class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
                 placeholder="Last Name"
                 required
+                onInvalid={(F) => {
+                  F.target.setCustomValidity("Enter your last name.");
+                  F.target.style.border = "1px solid red";
+                }}
+                onInput={(F) => {
+                  F.target.setCustomValidity("");
+                  F.target.style.border = "none";
+                }}
               />
             </div>
           </div>
@@ -611,6 +657,14 @@ const RequestQuote2 = () => {
                   class="bg-white text-gray-900 text-sm block w-8/12 p-2.5 focus:outline-none "
                   placeholder="123-456-7890"
                   required
+                  onInvalid={(F) => {
+                    F.target.setCustomValidity("Enter valid phone number.");
+                    F.target.style.border = "1px solid red";
+                  }}
+                  onInput={(F) => {
+                    F.target.setCustomValidity("");
+                    F.target.style.border = "none";
+                  }}
                 />
               </div>
             </div>
@@ -628,6 +682,14 @@ const RequestQuote2 = () => {
                 class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
                 placeholder="johndoe@gmail.com"
                 required
+                onInvalid={(F) => {
+                  F.target.setCustomValidity("Enter valid email.");
+                  F.target.style.border = "1px solid red";
+                }}
+                onInput={(F) => {
+                  F.target.setCustomValidity("");
+                  F.target.style.border = "none";
+                }}
               />
             </div>
           </div>

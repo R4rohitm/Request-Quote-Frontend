@@ -293,6 +293,16 @@ export default function Sea({ setFormData, formData, handleChange }) {
               class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
               placeholder="0"
               required
+              onInvalid={(F) => {
+                F.target.setCustomValidity(
+                  "Enter valid Quantity of Containers."
+                );
+                F.target.style.border = "1px solid red";
+              }}
+              onInput={(F) => {
+                F.target.setCustomValidity("");
+                F.target.style.border = "none";
+              }}
             />
           </div>
         </div>
@@ -339,6 +349,14 @@ export default function Sea({ setFormData, formData, handleChange }) {
                       class="bg-white text-gray-900 text-sm p-2.5 outline-none w-[85%]"
                       placeholder="0"
                       required
+                      onInvalid={(F) => {
+                        F.target.setCustomValidity("Enter valid Weight.");
+                        F.target.style.border = "1px solid red";
+                      }}
+                      onInput={(F) => {
+                        F.target.setCustomValidity("");
+                        F.target.style.border = "none";
+                      }}
                     />
                     <div class="w-[15%] border-l-2 border-gray-300 text-gray-500 text-sm flex justify-center items-center">
                       kg
@@ -360,6 +378,14 @@ export default function Sea({ setFormData, formData, handleChange }) {
                       class="bg-white text-gray-900 text-sm p-2.5 outline-none w-[85%]"
                       placeholder="0"
                       required
+                      onInvalid={(F) => {
+                        F.target.setCustomValidity("Enter valid Volume.");
+                        F.target.style.border = "1px solid red";
+                      }}
+                      onInput={(F) => {
+                        F.target.setCustomValidity("");
+                        F.target.style.border = "none";
+                      }}
                     />
                     <div class="w-[15%] border-l-2 border-gray-300 text-gray-500 text-sm flex justify-center items-center">
                       m³

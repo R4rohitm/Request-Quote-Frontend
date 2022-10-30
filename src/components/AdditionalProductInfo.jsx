@@ -363,6 +363,14 @@ const AdditionalProductInfo = ({ setFormData, formData, handleChange }) => {
               class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
               placeholder="0"
               required
+              onInvalid={(F) => {
+                F.target.setCustomValidity("Enter valid Un Number.");
+                F.target.style.border = "1px solid red";
+              }}
+              onInput={(F) => {
+                F.target.setCustomValidity("");
+                F.target.style.border = "none";
+              }}
               onChange={(e) => {
                 setFormData({
                   ...formData,
