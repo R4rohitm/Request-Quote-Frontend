@@ -11,8 +11,9 @@ describe('Request Form E2E Testing', () => {
   }); 
 
   it("Typing product in input field -- testing", function(){
-    cy.get("#product_details").type("blazers");
-    cy.get('h2').first().click();
+    cy.get("#product_details").type("inr");
+    cy.get("#product_details").should("inr");
+    // cy.get('h2').first().click();
   });
 
   it("Check transportation by field exist or not -- testing", function(){
