@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import { BeatLoader, BarLoader } from "react-spinners";
-import { useNavigate } from "react-router-dom";
 
 import Sea from "./Sea";
 import Air from "./Air";
@@ -46,8 +45,6 @@ const RequestQuote2 = () => {
     phone: { dialcode: "+91", country: "India", isocode: "IN" },
   });
   console.log(formData);
-
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -259,7 +256,16 @@ const RequestQuote2 = () => {
                   onChange={(e) => setHsQuery(e.target.value)}
                   onFocus={() => setClearProdInputIcon(true)}
                   onBlur={() => setClearProdInputIcon(false)}
+                  onInvalid={(F) => {
+                    F.target.setCustomValidity("Enter valid product details");
+                    F.target.style.border = "1px solid red";
+                  }}
+                  onInput={(F) => {
+                    F.target.setCustomValidity("");
+                    F.target.style.border = "none";
+                  }}
                 />
+
                 {!!product_details &&
                 !!product_details.value &&
                 product_details.value.length >= 2 ? (
@@ -441,6 +447,14 @@ const RequestQuote2 = () => {
                   class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
                   placeholder="City, Port"
                   required
+                  onInvalid={(F) => {
+                    F.target.setCustomValidity("Enter valid location");
+                    F.target.style.border = "1px solid red";
+                  }}
+                  onInput={(F) => {
+                    F.target.setCustomValidity("");
+                    F.target.style.border = "none";
+                  }}
                 />
               </div>
               {cities1 ? (
@@ -484,6 +498,14 @@ const RequestQuote2 = () => {
                   class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
                   placeholder="City, Port"
                   required
+                  onInvalid={(F) => {
+                    F.target.setCustomValidity("Enter valid location");
+                    F.target.style.border = "1px solid red";
+                  }}
+                  onInput={(F) => {
+                    F.target.setCustomValidity("");
+                    F.target.style.border = "none";
+                  }}
                 />
               </div>
               {cities2 ? (
@@ -528,6 +550,14 @@ const RequestQuote2 = () => {
                 class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
                 placeholder="Select"
                 required
+                onInvalid={(F) => {
+                  F.target.setCustomValidity("Enter valid date");
+                  F.target.style.border = "1px solid red";
+                }}
+                onInput={(F) => {
+                  F.target.setCustomValidity("");
+                  F.target.style.border = "none";
+                }}
               />
             </div>
           </div>
@@ -565,6 +595,14 @@ const RequestQuote2 = () => {
                 class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
                 placeholder="First Name"
                 required
+                onInvalid={(F) => {
+                  F.target.setCustomValidity("Enter your first name.");
+                  F.target.style.border = "1px solid red";
+                }}
+                onInput={(F) => {
+                  F.target.setCustomValidity("");
+                  F.target.style.border = "none";
+                }}
               />
             </div>
             <div>
@@ -581,6 +619,14 @@ const RequestQuote2 = () => {
                 class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
                 placeholder="Last Name"
                 required
+                onInvalid={(F) => {
+                  F.target.setCustomValidity("Enter your last name.");
+                  F.target.style.border = "1px solid red";
+                }}
+                onInput={(F) => {
+                  F.target.setCustomValidity("");
+                  F.target.style.border = "none";
+                }}
               />
             </div>
           </div>
@@ -611,6 +657,14 @@ const RequestQuote2 = () => {
                   class="bg-white text-gray-900 text-sm block w-8/12 p-2.5 focus:outline-none "
                   placeholder="123-456-7890"
                   required
+                  onInvalid={(F) => {
+                    F.target.setCustomValidity("Enter valid phone number.");
+                    F.target.style.border = "1px solid red";
+                  }}
+                  onInput={(F) => {
+                    F.target.setCustomValidity("");
+                    F.target.style.border = "none";
+                  }}
                 />
               </div>
             </div>
@@ -628,6 +682,14 @@ const RequestQuote2 = () => {
                 class="bg-white rounded-sm border border-gray-300 text-gray-900 text-sm focus:outline-[#4F46E5] hover:border-[#4F46E5] block w-full p-2.5 mb-2"
                 placeholder="johndoe@gmail.com"
                 required
+                onInvalid={(F) => {
+                  F.target.setCustomValidity("Enter valid email.");
+                  F.target.style.border = "1px solid red";
+                }}
+                onInput={(F) => {
+                  F.target.setCustomValidity("");
+                  F.target.style.border = "none";
+                }}
               />
             </div>
           </div>
@@ -670,21 +732,29 @@ const RequestQuote2 = () => {
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
               {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-[70%] m-auto md:w-full  bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                  <h3 className="text-3xl font-semibold">
-                    <div className="flex gap-3 font-semibold text-lg items-center">
-                      <img
-                        className="w-10 h-10"
-                        src="https://www.svgrepo.com/show/243729/checked-success.svg"
-                        alt=""
-                      />{" "}
-                      <h4>Your Request has been sent Successfully</h4>
-                    </div>
-                  </h3>
+                  <div className="flex gap-3 font-medium text-sm md:text-lg items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-10 h-10 border border-white fill-[#4F46E5] text-white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+
+                    <h4>Your Request has been sent Successfully</h4>
+                  </div>
                   <button
-                    className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                    className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-medium outline-none focus:outline-none"
                     onClick={() => setShowModal(false)}
                   >
                     <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
@@ -694,15 +764,15 @@ const RequestQuote2 = () => {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                  <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                    Thank you for filling the request quote form , we will get
+                  <p className="my-4 text-slate-500 text-sm md:text-lg leading-relaxed">
+                    Thank you for filling the request quote form, we will get
                     back to you shortly.
                   </p>
                 </div>
                 {/*footer*/}
-                <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                <div className="flex items-center justify-end p-3 md:p-6 border-t border-solid border-slate-200 rounded-b">
                   <button
-                    className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    className="text-red-500 background-transparent font-medium uppercase px-3 py-2 md:px-6 md:py-3 text-[10px] md:text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => {
                       setShowModal(false);
@@ -713,7 +783,7 @@ const RequestQuote2 = () => {
                   </button>
                   <button
                     class="newrq"
-                    className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    className="bg-[#4F46E5] text-white active:bg-[#4F46E5] font-bold uppercase text-[10px] md:text-sm px-3 py-2 md:px-6 md:py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => {
                       setShowModal(false);

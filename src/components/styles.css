@@ -27,3 +27,7 @@ select {
   border-radius: 4px;
   box-sizing: border-box;
 } */
+
+input:required:invalid {
+  border-color: #c00000;
+}
