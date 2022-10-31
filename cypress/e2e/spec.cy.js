@@ -3,7 +3,7 @@ describe('Request Form E2E Testing', () => {
   // Form Testing -scenario-1 (FCL-shipment)
 
   it('Visit the site -- testing', () => {
-    cy.visit('http://localhost:3000/requestquote')
+    cy.visit('https://intoglo-page.netlify.app/requestquote')
   })
 
   it("product input field exist or not -- testing", function(){
@@ -12,7 +12,7 @@ describe('Request Form E2E Testing', () => {
 
   it("Typing product in input field -- testing", function(){
     cy.get("#product_details").type("Mobiles");
-    cy.get('[class="text-sm cursor-pointer text-gray-900 font-medium px-6 py-4 whitespace-nowrap"]').click();
+    cy.get('h2').first().click();
   });
 
   it("Check transportation by field exist or not -- testing", function(){
@@ -59,9 +59,7 @@ describe('Request Form E2E Testing', () => {
     cy.get('[name="ready_to_load"]').type('2022-10-31');
   });
 
-  it("Associated services exist or not -- testing", function(){
-    cy.get("#link-checkbox").should("exist").click();
-  });
+
 
   it("Fill additional information field -- testing", function(){
     cy.get('[name="additional_information"]').type("Lorem Ipsum is simply dummy text of the printing and typesetting industry.")
