@@ -14,8 +14,8 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
 
-      - name: run cypress tests with Electron
+      - name: run cypress tests with chrome
         uses: cypress-io/github-action@v2
         timeout-minutes: 10
         with:
-          browser: firefox
+          browser: chrome
