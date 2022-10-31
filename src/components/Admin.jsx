@@ -165,7 +165,7 @@ const Admin = () => {
         <div className="body1">
           <div className="sidebar">
             <aside class="w-64" aria-label="Sidebar">
-              <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
+              <div class="overflow-y-auto py-4 px-3 bg-[#1f2937] rounded dark:bg-gray-800">
                 <ul class="space-y-2">
                   <li>
                     <a

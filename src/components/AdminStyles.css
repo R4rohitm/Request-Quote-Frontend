@@ -116,7 +116,7 @@
 .data {
   width: 100%;
   /* border: 1px solid black; */
-  min-height:370px;
+  min-height:515px;
   padding:10px;
 }
 .theadmain{
@@ -235,13 +235,19 @@
   text-align: center;
   border-radius: 10px;
 }
-
+.sidebar li>a{
+  color:azure;
+}
+.sidebar li>a:hover{
+  color:#1f2937;
+}
 .searchfil {
   margin-top: 10px;
   background-color: #1f2937;
   border-radius: 5px;
-  padding-left: 5px;
+  padding-left: 15px;
   padding-right: 5px;
+  padding-bottom: 15px;
   color: azure;
 }
 #customers {
