@@ -11,7 +11,7 @@ describe('Request Form E2E Testing', () => {
   }); 
 
   it("Typing product in input field -- testing", function(){
-    cy.get("#product_details").type("Mobiles");
+    cy.get("#product_details").type("blazers");
     cy.get('h2').first().click();
   });
 
