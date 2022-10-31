@@ -42,7 +42,7 @@ const Admin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    setRq([]);
     axios
       .post(
         `https://intoglo-first-api.herokuapp.com/quote/fetchByEmail`,
@@ -65,6 +65,7 @@ const Admin = () => {
   };
 
   const handle_sea = () => {
+    setRq([]);
     axios
       .get(`https://intoglo-first-api.herokuapp.com/quote/fetchByMode/sea`)
       .then(({ data }) => {
@@ -84,6 +85,7 @@ const Admin = () => {
   };
 
   const handle_air = () => {
+    setRq([]);
     axios
       .get(`https://intoglo-first-api.herokuapp.com/quote/fetchByMode/air`)
       .then(({ data }) => {
@@ -98,24 +100,9 @@ const Admin = () => {
       });
   };
 
-  //   const handle_sea_lcl = () => {
-  //     axios
-  //       .get(
-  //         `https://intoglo-first-api.herokuapp.com/quote/fetchByMode/sea?transportation_by=LCL`
-  //       )
-  //       .then(({ data }) => {
-  //         setRq(data);
-  //       })
-  //       .catch((error) => {
-  //         if (error.response) {
-  //           setRq([]);
-  //           Seterrmsg(`${error.response.data.message}`);
-  //           setShowModal(true);
-  //         }
-  //       });
-  //   };
 
   const handle_lcl = () => {
+    setRq([]);
     axios
       .get(`https://intoglo-first-api.herokuapp.com/quote/fetchbymode/LCL`)
       .then(({ data }) => {
@@ -131,6 +118,7 @@ const Admin = () => {
   };
 
   const handle_fcl = () => {
+      setRq([]);
       axios
       .get(`https://intoglo-first-api.herokuapp.com/quote/fetchByMode/FCL`)
       .then(({ data }) => {
@@ -146,6 +134,7 @@ const Admin = () => {
   };
 
   const handle_air_sc = () => {
+    setRq([]);
     axios
       .get(
         `https://intoglo-first-api.herokuapp.com/quote/fetchByMode/air?transportation_by=SC`
