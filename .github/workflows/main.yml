@@ -1,4 +1,5 @@
 name: run my vanilla Cypress tests
+
 on: 
   push:
     branches:
@@ -19,3 +20,5 @@ jobs:
         timeout-minutes: 10
         with:
           browser: chrome
+          node-version: 16
+        
