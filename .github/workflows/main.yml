@@ -1,5 +1,4 @@
-name: run my vanilla Cypress tests
-
+name: Run cypress tests
 on: 
   push:
     branches:
@@ -14,9 +13,14 @@ jobs:
 
       - name: Check out repository code
         uses: actions/checkout@v2
-
-      - name: run cypress tests with chrome
-        uses: actions/checkout@v3
+        
+      - name: Run tests on node 16
         with:
-         node-version: 16
+          node-version: 16
+          
+      - name: run cypress tests with chrome
+        uses: cypress-io/github-action@v2
+        timeout-minutes: 10
+        with:
+         browser: chrome
         
