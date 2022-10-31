@@ -125,7 +125,7 @@
   background-color: #1f2937;
   height:50px;
   display: grid;
-  grid-template-columns: 8% 11% 13% 13% 13% 12% 17% 13%;
+  grid-template-columns: 8% 11% 12% 14% 13% 12% 17% 13%;
   padding:2px;
 }
 .thead{
@@ -134,7 +134,7 @@
   /* background-color: #1f2937; */
   height:50px;
   display: grid;
-  grid-template-columns: 8% 11% 13% 13% 13% 12% 17% 13%;
+  grid-template-columns: 8% 11% 12% 14% 13% 12% 17% 13%;
   padding:2px;
 }
 .theadmain>div{
