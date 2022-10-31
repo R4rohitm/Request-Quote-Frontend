@@ -254,6 +254,9 @@
     border: 1px solid #ddd;
     padding: 8px;
   }
+  .thead>div{
+    text-align: center;
+  }
   
   #customers tr:nth-child(even){background-color: #f2f2f2;}
   
