@@ -1,4 +1,4 @@
-ame: run my vanilla Cypress tests
+name: run my vanilla Cypress tests
 on: 
   push:
     branches:
