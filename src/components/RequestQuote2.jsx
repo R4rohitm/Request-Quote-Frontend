@@ -24,6 +24,7 @@ const RequestQuote2 = () => {
   const [productDetails, setProductDetails] = useState();
   const [hsQuery, setHsQuery] = useState("");
   const [hsCodesLoading, setHsCodesLoading] = useState(false);
+  const [noResults, setNoResults] = useState(false);
   const [cities1, setCities1] = useState();
   const [cityQuery1, setCityQuery1] = useState("");
   const [cities2, setCities2] = useState();
@@ -98,6 +99,7 @@ const RequestQuote2 = () => {
     let product_details = document.getElementById("product_details");
     let hscodespan = document.getElementById("hscode");
     product_details.value = "";
+    product_details.target.innerText = "";
     hscodespan.innerText = "";
     setAdditionalProductInfo(false);
     setClearProdInputIcon(false);
@@ -131,6 +133,10 @@ const RequestQuote2 = () => {
       }
       setProductDetails(data);
     } catch (e) {
+      if (e) {
+        setHsCodesLoading(false);
+        setNoResults(true);
+      }
       console.log(e);
     }
   };
@@ -175,13 +181,14 @@ const RequestQuote2 = () => {
   };
 
   useEffect(() => {
+    setNoResults(false);
     if (hsQuery.length >= 1) {
       setHsCodesLoading(true);
     } else if (hsQuery.length === 0) {
       setHsCodesLoading(false);
     }
 
-    if (hsQuery.length <= 1) {
+    if (hsQuery.length <= 2) {
       setProductDetails(null);
       return;
     } else if (hsQuery.length >= 2) {
@@ -296,6 +303,31 @@ const RequestQuote2 = () => {
               {hsCodesLoading ? (
                 <div class="border m-auto absolute w-full mt-12 h-28 z-30 bg-white flex place-items-center rounded-md">
                   <BarLoader class="m-auto" color="#4F46E5" />
+                </div>
+              ) : null}
+              {noResults ? (
+                <div
+                  class="flex p-4 mb-4 mt-2 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800"
+                  role="alert"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="flex-shrink-0 inline w-5 h-5 mr-3"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                  <span class="sr-only">Info</span>
+                  <div>
+                    <span class="font-bold">No Results Found!</span> Try
+                    Searching for Another Product.
+                  </div>
                 </div>
               ) : null}
               {productDetails && productDetails.length > 0 ? (
