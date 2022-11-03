@@ -36,7 +36,7 @@ const RequestQuote2 = () => {
   const [clearProdInputIcon, setClearProdInputIcon] = useState(false);
   const [additionalProductInfo, setAdditionalProductInfo] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
+  var prod=[];
   //
   const [formData, setFormData] = useState({
     delivery_mode: "Sea",
@@ -124,14 +124,16 @@ const RequestQuote2 = () => {
   const getProductDetails = async (hsQuery) => {
     try {
       let response = await fetch(
-        `https://intoglo-first-api.herokuapp.com/search/Findhs?search=${hsQuery}`
+        // `https://intoglo-first-api.herokuapp.com/search/Findhs?search=${hsQuery}`
+        `http://localhost:8060/search/hscodes?q=${hsQuery}`
       );
       let data = await response.json();
-      console.log(data);
+      console.log(data.hits.hits);
       if (data) {
         setHsCodesLoading(false);
       }
-      setProductDetails(data);
+      setProductDetails(data.hits.hits);
+
     } catch (e) {
       if (e) {
         setHsCodesLoading(false);
@@ -140,6 +142,7 @@ const RequestQuote2 = () => {
       console.log(e);
     }
   };
+
 
   //
   let product_details = document.getElementById("product_details");
@@ -333,25 +336,26 @@ const RequestQuote2 = () => {
               {productDetails && productDetails.length > 0 ? (
                 <div class="border absolute w-full mt-12 max-h-40 z-30 bg-white overflow-y-scroll overflow-x-hidden rounded-md">
                   {productDetails.map((product) => {
+                    console.log(product);
                     return (
                       <div
                         onClick={() => {
                           handleClickProductName(
-                            product.name,
-                            product.description,
-                            product.hscode
+                            product._source.name,
+                            product._source.description,
+                            product._source.hscode
                           );
                           setFormData({
                             ...formData,
-                            product_details: product,
+                            product_details: product._source,
                           });
                           setHsQuery("");
                         }}
                         class="text-sm cursor-pointer text-gray-900 font-medium px-6 py-4 whitespace-nowrap"
                       >
                         <h2>
-                          {product.name} &nbsp;&nbsp;&nbsp;{" "}
-                          {product.description} &nbsp; {product.hscode}
+                          {product._source.name} &nbsp;&nbsp;&nbsp;{" "}
+                          {product._source.description} &nbsp; {product._source.hscode}
                         </h2>
                       </div>
                     );
