@@ -267,8 +267,8 @@ const Accordion = ({ e }) => {
                     <td>{e.email}</td>
                   </tr>
                   <tr>
-                    <td>Phone </td>
-                    <td><> {e.phone.dialcode} {e.phone.number}    (country : {e.phone.country}) </></td>
+                    <td>Phone &nbsp;&nbsp;&nbsp;&nbsp;| country : {e.phone.country} </td>
+                    <td><> {e.phone.dialcode} {e.phone.number} </></td>
                   </tr>
                 </table>
         </div>}
